@@ -207,7 +207,7 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-6 mb-10">
               {[
-                { icon: "◈", label: "Fondateur", value: "Ahmadou Wathie", sub: "African University League (AUL) & AUFL" },
+                { icon: "◈", label: "Fondateur", value: "Ahmadou Wathie", sub: "African University League — AUFL · AUBL · AWBL" },
                 { icon: "◇", label: "Email", value: "contact@aul-league.com", sub: "Réponse sous 48h ouvrées" },
                 { icon: "◉", label: "Siège", value: "Dakar, Sénégal", sub: "Présence panafricaine" },
                 { icon: "◆", label: "Réseaux sociaux", value: "X · Instagram · YouTube · LinkedIn", sub: "@AULofficial" },
@@ -233,7 +233,7 @@ export default function ContactPage() {
                 Inscrivez votre Université
               </h3>
               <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
-                Les candidatures pour la saison 2027 sont ouvertes jusqu&apos;au 30 juin 2026 — pour l&apos;AUL (football) et l&apos;AUFL (football américain).
+                Les candidatures pour la saison 2027 sont ouvertes jusqu&apos;au 30 juin 2026 — pour l&apos;AUFL (football), l&apos;AUBL (basketball) et l&apos;AWBL (basketball féminin).
               </p>
               <a href="#contact-form" className="inline-flex items-center gap-3 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors" style={{ backgroundColor: GOLD, color: DARK }}>
                 Soumettre une candidature

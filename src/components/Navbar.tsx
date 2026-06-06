@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,10 +8,31 @@ import { useLang } from "@/lib/i18n";
 
 const GOLD = "#c5a059";
 
+const LEAGUES = [
+  { key: "aufl", label: "AUFL", href: "/aufl", color: "#c5a059", sport: "Football", desc: "Ligue de football universitaire" },
+  { key: "aubl", label: "AUBL", href: "/aubl", color: "#3b82f6", sport: "Basketball", desc: "Ligue de basketball masculin" },
+  { key: "awbl", label: "AWBL", href: "/awbl", color: "#a855f7", sport: "Basketball Féminin", desc: "Ligue de basketball féminin" },
+] as const;
+
+
 export default function Navbar() {
   const pathname = usePathname();
   const { lang, setLang, t } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const activeLeague = LEAGUES.find((l) => pathname.startsWith(l.href)) ?? null;
+  const leagueLabel = activeLeague ? activeLeague.label : "AUL";
+  const leagueColor = activeLeague ? activeLeague.color : GOLD;
+
+  function handleMouseEnter() {
+    if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
+    setDropdownOpen(true);
+  }
+  function handleMouseLeave() {
+    dropdownTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  }
 
   const navLinks = [
     { label: t("nav_home"),         href: "/" },
@@ -46,9 +67,103 @@ export default function Navbar() {
             className="text-[10px] tracking-[0.14em] uppercase leading-none hidden sm:block"
             style={{ color: "rgba(197,160,89,0.7)" }}
           >
-            AUFL
+            {leagueLabel}
           </span>
         </Link>
+
+        {/* League dropdown trigger */}
+        <div
+          className="hidden md:block relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Trigger button */}
+          <button
+            className="flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-200"
+            style={{
+              border: `1px solid ${leagueColor}50`,
+              color: leagueColor,
+              backgroundColor: dropdownOpen ? `${leagueColor}10` : "transparent",
+            }}
+          >
+            {leagueLabel}
+            <svg
+              width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+              style={{ transition: "transform 0.2s", transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+
+          {/* Dropdown panel */}
+          {dropdownOpen && (
+            <div
+              className="absolute top-full left-0 mt-1 w-64 z-50 overflow-hidden"
+              style={{
+                backgroundColor: "#0e0e0c",
+                border: "1px solid rgba(255,255,255,0.1)",
+                boxShadow: "0 24px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)",
+              }}
+            >
+              {/* Header */}
+              <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                <span className="text-[9px] font-black uppercase tracking-[0.22em]" style={{ color: "rgba(255,255,255,0.25)" }}>
+                  Ligues AUL
+                </span>
+              </div>
+
+              {/* AUL home */}
+              <Link
+                href="/"
+                onClick={() => setDropdownOpen(false)}
+                className="flex items-center justify-between px-4 py-3 transition-colors"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", backgroundColor: !activeLeague ? "rgba(197,160,89,0.06)" : "transparent" }}
+              >
+                <div>
+                  <div className="text-[11px] font-black uppercase tracking-[0.14em]" style={{ color: !activeLeague ? GOLD : "rgba(255,255,255,0.75)" }}>
+                    AUL
+                  </div>
+                  <div className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+                    African University League
+                  </div>
+                </div>
+                {!activeLeague && (
+                  <span className="w-1 h-4 shrink-0" style={{ backgroundColor: GOLD }} />
+                )}
+              </Link>
+
+              {/* Leagues */}
+              {LEAGUES.map((league) => {
+                const isActive = pathname.startsWith(league.href);
+                return (
+                  <Link
+                    key={league.key}
+                    href={league.href}
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center justify-between px-4 py-3 transition-colors"
+                    style={{
+                      borderBottom: "1px solid rgba(255,255,255,0.05)",
+                      backgroundColor: isActive ? `${league.color}08` : "transparent",
+                    }}
+                  >
+                    <div>
+                      <div className="text-[11px] font-black uppercase tracking-[0.14em]" style={{ color: isActive ? league.color : "rgba(255,255,255,0.75)" }}>
+                        {league.label}
+                      </div>
+                      <div className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+                        {league.sport}
+                      </div>
+                    </div>
+                    {isActive && (
+                      <span className="w-1 h-4 shrink-0" style={{ backgroundColor: league.color }} />
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
 
         {/* Desktop nav links */}
         <div className="hidden lg:flex items-center">
@@ -182,10 +297,28 @@ export default function Navbar() {
               </Link>
             );
           })}
+          {/* Mobile league switcher */}
+          <div className="px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+            <div className="text-[9px] font-black uppercase tracking-[0.2em] mb-3" style={{ color: "rgba(255,255,255,0.25)" }}>Ligues AUL</div>
+            <div className="flex flex-col gap-1">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center justify-between px-3 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] transition-all" style={!activeLeague ? { color: GOLD, borderLeft: `2px solid ${GOLD}` } : { color: "rgba(255,255,255,0.45)", borderLeft: "2px solid transparent" }}>
+                AUL <span className="text-[9px] font-normal normal-case tracking-normal" style={{ color: "rgba(255,255,255,0.25)" }}>African University League</span>
+              </Link>
+              {LEAGUES.map((league) => {
+                const isActive = pathname.startsWith(league.href);
+                return (
+                  <Link key={league.key} href={league.href} onClick={() => setMenuOpen(false)} className="flex items-center justify-between px-3 py-2.5 text-[11px] font-black uppercase tracking-[0.14em] transition-all" style={isActive ? { color: league.color, borderLeft: `2px solid ${league.color}` } : { color: "rgba(255,255,255,0.45)", borderLeft: "2px solid transparent" }}>
+                    {league.label} <span className="text-[9px] font-normal normal-case tracking-normal" style={{ color: "rgba(255,255,255,0.25)" }}>{league.sport}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mx-6 my-4 text-center py-3 text-[11px] font-bold uppercase tracking-[0.12em]"
+            className="mx-6 mb-4 text-center py-3 text-[11px] font-bold uppercase tracking-[0.12em]"
             style={{ border: `1px solid ${GOLD}`, color: GOLD }}
           >
             {t("nav_partner")}

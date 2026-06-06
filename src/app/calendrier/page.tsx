@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 
 const phases = [
   {
-    name: "Demi-finales — AUFL (Football Américain)",
+    name: "Demi-finales — AUFL Football",
     color: "#c5a059",
     matches: [
       { id: "sf1", date: "20 Mai 2026", time: "18:00", home: "Univ. de Dakar", away: "Univ. de Nairobi", venue: "Stade Léopold S. Senghor", round: "Demi-finale 1", competition: "AUFL", status: "upcoming" },
@@ -142,14 +142,14 @@ export default function CalendrierPage() {
       <PageHeader
         label="Saison 2026"
         title="Calendrier"
-        subtitle="Tous les matchs AUL (football) et AUFL (football américain) — phases de groupes, demi-finales et finale à Kigali."
+        subtitle="Tous les matchs AUFL de la saison 2026 — phases de groupes, demi-finales et finale."
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
         <div className="max-w-5xl mx-auto">
           {/* Competition filter tabs */}
           <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-            {["Toutes les compétitions", "AUL — Football", "AUFL — Football Américain"].map((tab, i) => (
+            {["Toutes les compétitions", "AUFL — Football", "AUBL — Basketball", "AWBL — Basketball Féminin"].map((tab, i) => (
               <button
                 key={tab}
                 className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] border transition-colors"

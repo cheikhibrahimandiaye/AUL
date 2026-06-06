@@ -17,8 +17,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AUL / AUFL — African University League",
-  description: "La plateforme officielle du sport universitaire africain — football et football américain.",
+  title: "AUL — African University League",
+  description: "La plateforme officielle du sport universitaire africain — football, basketball masculin et basketball féminin.",
 };
 
 export default function RootLayout({

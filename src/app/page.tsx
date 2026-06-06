@@ -10,7 +10,7 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 
 const IMG = {
-  hero:   "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=1400&q=80",
+  hero:   "/hero-aufl.jpg",
   video1: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80",
   video2: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80",
   video3: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&q=80",
@@ -49,7 +49,7 @@ export default function HomePage() {
       <Navbar />
       <HeroBanner
         imageSrc={IMG.hero}
-        imageAlt="Joueurs de football universitaire africain en action"
+        imageAlt="Joueurs de football universitaire africain célébrant un but"
       />
       <MatchTicker />
       <QuickLinks />

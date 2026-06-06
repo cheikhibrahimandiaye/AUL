@@ -7,21 +7,21 @@ const GREEN = "#043927";
 
 const values = [
   { icon: "◈", title: "Excellence", description: "Nous élevons le niveau du sport universitaire africain aux standards internationaux, inspirés des meilleures ligues du monde — NCAA, UEFA, FIFA." },
-  { icon: "◇", title: "Unité Panafricaine", description: "Connecter les universités de tout le continent, bâtir des ponts entre cultures et nations à travers le football et le football américain." },
+  { icon: "◇", title: "Unité Panafricaine", description: "Connecter les universités de tout le continent, bâtir des ponts entre cultures et nations à travers le football et le basketball." },
   { icon: "◉", title: "Formation", description: "Au-delà du sport, nous développons les athlètes de demain — sur le terrain et dans les amphithéâtres universitaires." },
   { icon: "◆", title: "Impact", description: "Chaque match est une vitrine pour les talents africains, une opportunité de visibilité nationale et internationale." },
 ];
 
 const milestones = [
-  { year: "2023", title: "Fondation de l'AUL & l'AUFL", description: "Ahmadou Wathie pose les bases de la première ligue universitaire africaine de football et football américain au Sénégal." },
-  { year: "2024", title: "Phase pilote", description: "8 universités de 5 pays rejoignent la ligue pour la saison inaugurale — AUL (football) et AUFL (football américain)." },
+  { year: "2023", title: "Fondation de l'AUL", description: "Ahmadou Wathie pose les bases de la première ligue universitaire africaine de football au Sénégal — sous la bannière de l'African University League." },
+  { year: "2024", title: "Phase pilote", description: "8 universités de 5 pays rejoignent la ligue pour la saison inaugurale de l'AUFL, ligue de football de l'AUL." },
   { year: "2025", title: "Expansion & Partenariats", description: "Signature des premiers partenariats officiels et intégration de nouvelles universités à travers l'Afrique." },
   { year: "2026", title: "Playoffs à Kigali", description: "La grande finale se joue au Kigali Pelé Stadium — point culminant d'une saison historique pour le sport universitaire africain." },
 ];
 
 const team = [
   { name: "Ahmadou Wathie", role: "Fondateur & Président", flag: "🇸🇳" },
-  { name: "Direction Sportive", role: "Opérations AUL & AUFL", flag: "⚽" },
+  { name: "Direction Sportive", role: "Opérations AUFL · AUBL · AWBL", flag: "⚽" },
   { name: "Relations Universités", role: "Partenariats académiques", flag: "🎓" },
   { name: "Communication", role: "Médias & Digital", flag: "📡" },
 ];
@@ -32,8 +32,8 @@ export default function AProposPage() {
       <Navbar />
       <PageHeader
         label="Notre Mission"
-        title="À Propos de l'AUL / AUFL"
-        subtitle="L'African University League (AUL) et l'African University Football League (AUFL) — les premières ligues universitaires africaines de football et football américain."
+        title="À Propos de l'AUL"
+        subtitle="L'African University League (AUL) est l'organisme qui chapeaute trois ligues : l'AUFL (football), l'AUBL (basketball masculin) et l'AWBL (basketball féminin)."
       />
 
       <main style={{ backgroundColor: "#fafaf8" }}>
@@ -53,17 +53,17 @@ export default function AProposPage() {
                 La Référence du Sport Universitaire Africain
               </h2>
               <p className="leading-relaxed mb-5 text-base" style={{ color: "#6b6b60" }}>
-                L'AUL et l'AUFL sont nées d'un constat simple : l'Afrique regorge de talents extraordinaires sur ses campus universitaires, mais il manquait une plateforme structurée, professionnelle et panafricaine pour les révéler au monde.
+                L'AUL est née d'un constat simple : l'Afrique regorge de talents extraordinaires sur ses campus universitaires, mais il manquait une plateforme structurée, professionnelle et panafricaine pour les révéler au monde.
               </p>
               <p className="leading-relaxed text-base" style={{ color: "#6b6b60" }}>
-                Inspirés par les modèles NCAA, UEFA, BAL et FIFA, nous construisons deux ligues complémentaires qui allient excellence sportive, formation académique et rayonnement continental — pour que les prochains champions africains émergent d'abord sur nos campus.
+                Inspirés par les modèles NCAA, UEFA, BAL et FIFA, nous construisons trois ligues complémentaires — AUFL (football), AUBL (basketball masculin), AWBL (basketball féminin) — qui allient excellence sportive, formation académique et rayonnement continental.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "8",  label: "Universités membres" },
                 { value: "5",  label: "Pays représentés" },
-                { value: "2",  label: "Compétitions (AUL + AUFL)" },
+                { value: "3",  label: "Ligues (AUFL · AUBL · AWBL)" },
                 { value: "∞",  label: "Talents à révéler" },
               ].map((stat) => (
                 <div key={stat.label} className="p-6 border" style={{ backgroundColor: "#ffffff", borderColor: "#e2e0d8" }}>

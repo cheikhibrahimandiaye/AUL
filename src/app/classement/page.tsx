@@ -29,7 +29,7 @@ export default function ClassementPage() {
       <PageHeader
         label="Saison 2026"
         title="Classement"
-        subtitle="Le classement général de la saison régulière AUFL 2026 — 8 universités, 16 matchs, une seule championne."
+        subtitle="Le classement de la saison régulière AUFL 2026 (Football) — 8 universités, 16 matchs, une seule championne."
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
