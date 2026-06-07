@@ -3,23 +3,21 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 const standings = [
-  { rank: 1, university: "Univ. de Dakar", country: "Sénégal", flag: "🇸🇳", played: 16, wins: 14, losses: 2, pf: 1182, pa: 1018, diff: +164, streak: "V5", conference: "Groupe A" },
-  { rank: 2, university: "Univ. de Nairobi", country: "Kenya", flag: "🇰🇪", played: 16, wins: 12, losses: 4, pf: 1096, pa: 1032, diff: +64, streak: "V3", conference: "Groupe B" },
-  { rank: 3, university: "Univ. du Caire", country: "Égypte", flag: "🇪🇬", played: 16, wins: 11, losses: 5, pf: 1058, pa: 1004, diff: +54, streak: "D1", conference: "Groupe B" },
-  { rank: 4, university: "Univ. de Lagos", country: "Nigeria", flag: "🇳🇬", played: 16, wins: 10, losses: 6, pf: 1044, pa: 1012, diff: +32, streak: "V2", conference: "Groupe C" },
-  { rank: 5, university: "Univ. d'Accra", country: "Ghana", flag: "🇬🇭", played: 16, wins: 9, losses: 7, pf: 1010, pa: 998, diff: +12, streak: "D2", conference: "Groupe A" },
-  { rank: 6, university: "Univ. de Tunis", country: "Tunisie", flag: "🇹🇳", played: 16, wins: 8, losses: 8, pf: 998, pa: 1010, diff: -12, streak: "D1", conference: "Groupe C" },
-  { rank: 7, university: "Univ. de Kigali", country: "Rwanda", flag: "🇷🇼", played: 16, wins: 7, losses: 9, pf: 980, pa: 1044, diff: -64, streak: "V1", conference: "Groupe A" },
-  { rank: 8, university: "Univ. d'Abidjan", country: "Côte d'Ivoire", flag: "🇨🇮", played: 16, wins: 6, losses: 10, pf: 960, pa: 1096, diff: -136, streak: "D3", conference: "Groupe B" },
+  { rank: 1, university: "Univ. Cheikh Anta Diop", country: "Sénégal", flag: "🇸🇳", played: 5, wins: 5, losses: 0, pf: 12, pa: 2, diff: +10, streak: "V5", conference: "Groupe A" },
+  { rank: 2, university: "Univ. de Thiès", country: "Sénégal", flag: "🇸🇳", played: 5, wins: 4, losses: 1, pf: 10, pa: 4, diff: +6, streak: "V2", conference: "Groupe A" },
+  { rank: 3, university: "Univ. de Cape Town", country: "Afrique du Sud", flag: "🇿🇦", played: 5, wins: 2, losses: 3, pf: 6, pa: 8, diff: -2, streak: "D2", conference: "Groupe B" },
+  { rank: 4, university: "Univ. de Gambie", country: "Gambie", flag: "🇬🇲", played: 5, wins: 1, losses: 4, pf: 4, pa: 10, diff: -6, streak: "D3", conference: "Groupe A" },
+  { rank: 5, university: "Univ. Félix H-B", country: "Côte d'Ivoire", flag: "🇨🇮", played: 5, wins: 1, losses: 4, pf: 3, pa: 9, diff: -6, streak: "D1", conference: "Groupe B" },
+  { rank: 6, university: "Univ. Thomas Sankara", country: "Burkina Faso", flag: "🇧🇫", played: 5, wins: 0, losses: 5, pf: 1, pa: 13, diff: -12, streak: "D5", conference: "Groupe A" },
 ];
 
 const rankColors: Record<number, string> = { 1: "#c5a059", 2: "#9ca3af", 3: "#b87333" };
 
 const statLeaders = [
-  { stat: "Points / match", leader: "Univ. de Dakar", value: "73.9" },
-  { stat: "Rebonds / match", leader: "Univ. de Nairobi", value: "38.2" },
-  { stat: "Passes déc. / match", leader: "Univ. du Caire", value: "17.4" },
-  { stat: "Différentiel", leader: "Univ. de Dakar", value: "+10.3" },
+  { stat: "Buts marqués", leader: "Univ. Cheikh Anta Diop", value: "12" },
+  { stat: "Meilleure défense", leader: "Univ. Cheikh Anta Diop", value: "2 enc." },
+  { stat: "Meilleur différentiel", leader: "Univ. Cheikh Anta Diop", value: "+10" },
+  { stat: "Invaincu", leader: "Univ. Cheikh Anta Diop", value: "5/5" },
 ];
 
 export default function ClassementPage() {
@@ -27,9 +25,9 @@ export default function ClassementPage() {
     <>
       <Navbar />
       <PageHeader
-        label="Saison 2026"
+        label="Saison 2027"
         title="Classement"
-        subtitle="Le classement de la saison régulière AUFL 2026 (Football) — 8 universités, 16 matchs, une seule championne."
+        subtitle="Le classement AUFL 2027 (Football) — 6 universités, 5 pays africains, une seule championne."
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">

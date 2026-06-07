@@ -12,62 +12,62 @@ const IMG = {
 };
 
 const standingsData = [
-  { rank: 1, university: "Univ. de Dakar",   university_en: "Univ. of Dakar",   wins: 14, losses: 2 },
-  { rank: 2, university: "Univ. de Nairobi", university_en: "Univ. of Nairobi", wins: 12, losses: 4 },
-  { rank: 3, university: "Univ. du Caire",   university_en: "Univ. of Cairo",   wins: 11, losses: 5 },
-  { rank: 4, university: "Univ. de Lagos",   university_en: "Univ. of Lagos",   wins: 10, losses: 6 },
-  { rank: 5, university: "Univ. d'Accra",    university_en: "Univ. of Accra",   wins: 9,  losses: 7 },
-  { rank: 6, university: "Univ. de Tunis",   university_en: "Univ. of Tunis",   wins: 8,  losses: 8 },
+  { rank: 1, university: "Univ. Cheikh Anta Diop", university_en: "Univ. Cheikh Anta Diop", wins: 5, losses: 0 },
+  { rank: 2, university: "Univ. de Thiès",          university_en: "Univ. de Thiès",          wins: 4, losses: 1 },
+  { rank: 3, university: "Univ. de Cape Town",      university_en: "Univ. de Cape Town",      wins: 2, losses: 3 },
+  { rank: 4, university: "Univ. de Gambie",         university_en: "Univ. de Gambie",         wins: 1, losses: 4 },
+  { rank: 5, university: "Univ. Félix H-B",         university_en: "Univ. Félix H-B",         wins: 1, losses: 4 },
+  { rank: 6, university: "Univ. Thomas Sankara",    university_en: "Univ. Thomas Sankara",    wins: 0, losses: 5 },
 ];
 
 export default function HomeContent() {
   const { lang } = useLang();
 
   const featuredArticle = {
-    id: "playoffs-2026-singularite",
+    id: "ahmadou-wathie-fondateur-aul",
     title: lang === "en"
-      ? "The uniqueness of each team heading into the 2026 AUFL Playoffs"
-      : "La singularité de chaque équipe abordant les Playoffs AUFL 2026",
-    date: "18 Mai 2026",
-    imageSrc: IMG.article1,
-    imageAlt: lang === "en" ? "African university football players in action" : "Joueurs de football universitaire africain en action",
-    href: "/actualites/playoffs-2026-singularite",
-    tag: "Playoffs",
+      ? "Ahmadou Wathie: « Africa has the largest pool of sports talent in the world »"
+      : "Ahmadou Wathie : « L'Afrique a le plus grand vivier de talents sportifs au monde »",
+    date: "1 Juin 2025",
+    imageSrc: "/ahmadou-wathie.jpg",
+    imageAlt: lang === "en" ? "Ahmadou Wathie, AUL Founder" : "Ahmadou Wathie, Fondateur de l'AUL",
+    href: "/actualites/ahmadou-wathie-fondateur-aul",
+    tag: "AUL",
   };
 
   const secondaryArticles = [
     {
-      id: "stats-leaders",
+      id: "aufl-2027-presentation",
       title: lang === "en"
-        ? "Teams leading the statistical rankings ahead of the Playoffs"
-        : "Les équipes en tête des classements statistiques avant les Playoffs",
-      date: "16 Mai 2026",
-      imageSrc: IMG.article2,
-      imageAlt: lang === "en" ? "AUFL match" : "Match AUFL",
-      href: "/actualites/classements-statistiques",
-      tag: "Statistiques",
+        ? "AUFL 2027: 6 universities, 5 countries, one champion"
+        : "AUFL 2027 : 6 universités, 5 pays, une seule championne",
+      date: "15 Jan 2027",
+      imageSrc: "/logo-aul.jpg",
+      imageAlt: "AUFL 2027",
+      href: "/actualites/aufl-2027-presentation",
+      tag: "AUFL",
     },
     {
-      id: "histoire-finales",
+      id: "ucad-favori-aufl",
       title: lang === "en"
-        ? "Finals decided in the last seconds — the history of the AUFL"
-        : "Les finales décidées dans les dernières secondes — l'histoire de l'AUFL",
-      date: "14 Mai 2026",
-      imageSrc: IMG.article3,
-      imageAlt: lang === "en" ? "Historic AUFL moment" : "Moment historique AUFL",
-      href: "/actualites/histoire-finales",
-      tag: "Histoire",
+        ? "Univ. Cheikh Anta Diop, top favourite of AUFL 2027"
+        : "L'Univ. Cheikh Anta Diop, grande favorite de l'AUFL 2027",
+      date: "18 Mar 2027",
+      imageSrc: "/logo-aul.jpg",
+      imageAlt: lang === "en" ? "UCAD AUFL 2027" : "UCAD AUFL 2027",
+      href: "/actualites/ucad-favori-aufl",
+      tag: "Universités",
     },
     {
-      id: "brackets-playoffs",
+      id: "dakar-ville-hote",
       title: lang === "en"
-        ? "Standings and brackets: everything about the 2026 Playoffs"
-        : "Classements et brackets : tout savoir sur les Playoffs 2026",
-      date: "13 Mai 2026",
-      imageSrc: IMG.article4,
-      imageAlt: lang === "en" ? "2026 AUFL Playoffs Brackets" : "Brackets Playoffs AUFL 2026",
-      href: "/actualites/brackets-playoffs",
-      tag: "Playoffs",
+        ? "Dakar, host city of AUFL 2027 — Stade L.S. Senghor at the heart of history"
+        : "Dakar, ville hôte de l'AUFL 2027 — le Stade L.S. Senghor au cœur de l'histoire",
+      date: "20 Jan 2027",
+      imageSrc: "/logo-aul.jpg",
+      imageAlt: "Dakar AUFL 2027",
+      href: "/actualites/dakar-ville-hote",
+      tag: "AUFL",
     },
   ];
 

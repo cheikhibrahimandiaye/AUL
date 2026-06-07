@@ -18,11 +18,11 @@ export default function Footer() {
       { label: "Contact", href: "/contact" },
     ],
     [t("footer_competitions")]: [
-      { label: "AUL — Football", href: "/calendrier" },
-      { label: "AUFL — Football Américain", href: "/calendrier" },
+      { label: "AUFL — Football", href: "/aufl" },
+      { label: "AUBL — Basketball Masculin", href: "/aubl" },
+      { label: "AWBL — Basketball Féminin", href: "/awbl" },
       { label: t("nav_calendar"), href: "/calendrier" },
       { label: t("nav_standings"), href: "/classement" },
-      { label: "Playoffs 2026", href: "/calendrier" },
     ],
     [t("footer_universities")]: [
       { label: t("nav_universities"), href: "/universites" },
@@ -57,8 +57,7 @@ export default function Footer() {
                 <div className="text-2xl tracking-[0.18em] uppercase leading-none" style={{ fontFamily: "var(--font-display)", color: "#ffffff" }}>AUL</div>
               </div>
             </Link>
-            <p className="text-[11px] font-bold uppercase tracking-[0.12em] mb-0.5" style={{ color: GOLD }}>African University League</p>
-            <p className="text-[11px] font-bold uppercase tracking-[0.12em] mb-5" style={{ color: "rgba(255,255,255,0.28)" }}>African University Football League</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.12em] mb-5" style={{ color: GOLD }}>African University League</p>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.34)" }}>{t("footer_tagline")}</p>
             <div className="flex gap-2 mt-4">
               {[{ label: "X", href: "#" }, { label: "IG", href: "#" }, { label: "YT", href: "#" }, { label: "IN", href: "#" }].map((s) => (
@@ -101,8 +100,9 @@ export default function Footer() {
               <button className="px-3 py-2 text-[11px] font-black uppercase shrink-0" style={{ backgroundColor: GOLD, color: DARK }}>OK</button>
             </div>
             <div className="flex flex-wrap gap-2 mt-5">
-              <span className="text-[9px] font-black uppercase tracking-[0.12em] px-2.5 py-1" style={{ border: `1px solid ${GOLD}`, color: GOLD }}>AUL</span>
-              <span className="text-[9px] font-black uppercase tracking-[0.12em] px-2.5 py-1" style={{ border: "1px solid rgba(255,255,255,0.14)", color: "rgba(255,255,255,0.38)" }}>AUFL</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.12em] px-2.5 py-1" style={{ border: `1px solid ${GOLD}`, color: GOLD }}>AUFL</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.12em] px-2.5 py-1" style={{ border: "1px solid #3b82f650", color: "#3b82f6" }}>AUBL</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.12em] px-2.5 py-1" style={{ border: "1px solid #a855f750", color: "#a855f7" }}>AWBL</span>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Footer() {
         <div className="pt-6 flex flex-wrap justify-between items-center gap-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <div>
             <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-              © {new Date().getFullYear()} AUL / AUFL. {t("footer_rights")}
+              © {new Date().getFullYear()} African University League (AUL). {t("footer_rights")}
             </span>
             <span className="text-[11px] ml-2" style={{ color: "rgba(255,255,255,0.14)" }}>{t("footer_founded")}</span>
           </div>

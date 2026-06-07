@@ -9,9 +9,9 @@ import { useLang } from "@/lib/i18n";
 const GOLD = "#c5a059";
 
 const LEAGUES = [
-  { key: "aufl", label: "AUFL", href: "/aufl", color: "#c5a059", sport: "Football", desc: "Ligue de football universitaire" },
-  { key: "aubl", label: "AUBL", href: "/aubl", color: "#3b82f6", sport: "Basketball", desc: "Ligue de basketball masculin" },
-  { key: "awbl", label: "AWBL", href: "/awbl", color: "#a855f7", sport: "Basketball Féminin", desc: "Ligue de basketball féminin" },
+  { key: "aufl", label: "AUFL", href: "/aufl", color: "#c5a059", sport: "Football", desc: "Ligue de football universitaire", logo: "/logo-aul.jpg" },
+  { key: "aubl", label: "AUBL", href: "/aubl", color: "#3b82f6", sport: "Basketball", desc: "Ligue de basketball masculin", logo: "/logo-aubl.jpg" },
+  { key: "awbl", label: "AWBL", href: "/awbl", color: "#a855f7", sport: "Basketball Féminin", desc: "Ligue de basketball féminin", logo: "/logo-aul.jpg" },
 ] as const;
 
 
@@ -25,6 +25,7 @@ export default function Navbar() {
   const activeLeague = LEAGUES.find((l) => pathname.startsWith(l.href)) ?? null;
   const leagueLabel = activeLeague ? activeLeague.label : "AUL";
   const leagueColor = activeLeague ? activeLeague.color : GOLD;
+  const leagueLogo = activeLeague ? activeLeague.logo : "/logo-aul.jpg";
 
   function handleMouseEnter() {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
@@ -56,8 +57,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo-aul.jpg"
-            alt="AUL Logo"
+            src={leagueLogo}
+            alt={`${leagueLabel} Logo`}
             width={40}
             height={40}
             className="rounded-full"

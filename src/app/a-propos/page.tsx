@@ -6,24 +6,25 @@ const GOLD = "#c5a059";
 const GREEN = "#043927";
 
 const values = [
-  { icon: "◈", title: "Excellence", description: "Nous élevons le niveau du sport universitaire africain aux standards internationaux, inspirés des meilleures ligues du monde — NCAA, UEFA, FIFA." },
-  { icon: "◇", title: "Unité Panafricaine", description: "Connecter les universités de tout le continent, bâtir des ponts entre cultures et nations à travers le football et le basketball." },
-  { icon: "◉", title: "Formation", description: "Au-delà du sport, nous développons les athlètes de demain — sur le terrain et dans les amphithéâtres universitaires." },
-  { icon: "◆", title: "Impact", description: "Chaque match est une vitrine pour les talents africains, une opportunité de visibilité nationale et internationale." },
+  { icon: "◈", title: "Excellence", description: "Des compétitions d'élite professionnelles à l'échelle nationale et continentale, répondant aux plus hauts standards d'intégrité sportive." },
+  { icon: "◇", title: "Unité Panafricaine", description: "54 pays, une plateforme. L'AUL connecte les universités africaines à travers le sport, bâtissant des ponts entre cultures et nations." },
+  { icon: "◉", title: "Formation", description: "Excellence académique et sportive indissociables. Chaque joueur doit être étudiant régulier — le campus et le terrain sont un même terrain de développement." },
+  { icon: "◆", title: "Médias & Visibilité", description: "Une couverture médiatique premium qui forge la marque des athlètes, attire les recruteurs et exporte les talents africains sur la scène mondiale." },
 ];
 
 const milestones = [
-  { year: "2023", title: "Fondation de l'AUL", description: "Ahmadou Wathie pose les bases de la première ligue universitaire africaine de football au Sénégal — sous la bannière de l'African University League." },
-  { year: "2024", title: "Phase pilote", description: "8 universités de 5 pays rejoignent la ligue pour la saison inaugurale de l'AUFL, ligue de football de l'AUL." },
-  { year: "2025", title: "Expansion & Partenariats", description: "Signature des premiers partenariats officiels et intégration de nouvelles universités à travers l'Afrique." },
-  { year: "2026", title: "Playoffs à Kigali", description: "La grande finale se joue au Kigali Pelé Stadium — point culminant d'une saison historique pour le sport universitaire africain." },
+  { year: "2025", title: "Fondation de l'AUL", description: "Ahmadou Wathie fonde l'African University League à Dakar, Sénégal — première plateforme continentale de sports universitaires africains. Lancement de la Phase 1 : Sénégal & Afrique de l'Ouest." },
+  { year: "2027", title: "AUFL — Édition Inaugurale", description: "6 universités de 5 pays s'affrontent à Dakar pour la première édition de la Ligue Africaine de Football Universitaire. Le Stade Léopold S. Senghor accueille les matchs en mars 2027." },
+  { year: "2028", title: "Lancement AUBL & AWBL", description: "La Ligue Africaine de Basketball Universitaire (masculin et féminin) complète le triptyque sportif de l'AUL, avec l'ambition d'un Final Four continental." },
+  { year: "2028–2032", title: "Phase 2 — Expansion continentale", description: "Extension à l'Afrique du Nord et de l'Est, accords de diffusion panafricains, 50+ universités membres, lancement d'AUL Médias." },
+  { year: "2033–2040", title: "Phase 3 — Empreinte panafricaine", description: "54 pays, championnats panafricains dans chaque discipline, objectif +50 M$ de revenus annuels. L'AUL devient l'institution sportive universitaire de référence du continent." },
 ];
 
 const team = [
-  { name: "Ahmadou Wathie", role: "Fondateur & Président", flag: "🇸🇳" },
-  { name: "Direction Sportive", role: "Opérations AUFL · AUBL · AWBL", flag: "⚽" },
-  { name: "Relations Universités", role: "Partenariats académiques", flag: "🎓" },
-  { name: "Communication", role: "Médias & Digital", flag: "📡" },
+  { name: "Ahmadou Wathie", role: "Fondateur & Président — AUL", flag: "🇸🇳" },
+  { name: "Direction Sportive", role: "Opérations AUFL · AUBL · AWBL", flag: "🇸🇳" },
+  { name: "Relations Universités", role: "Partenariats académiques & Inscription", flag: "🇸🇳" },
+  { name: "Communication", role: "Médias, Digital & Production", flag: "🇸🇳" },
 ];
 
 export default function AProposPage() {
@@ -53,18 +54,18 @@ export default function AProposPage() {
                 La Référence du Sport Universitaire Africain
               </h2>
               <p className="leading-relaxed mb-5 text-base" style={{ color: "#6b6b60" }}>
-                L'AUL est née d'un constat simple : l'Afrique regorge de talents extraordinaires sur ses campus universitaires, mais il manquait une plateforme structurée, professionnelle et panafricaine pour les révéler au monde.
+                L'Afrique compte plus de 1 700 universités et 10 millions d'étudiants inscrits dans 54 pays — le plus grand vivier de jeunes talents sportifs au monde, jusqu'ici sans plateforme structurée à l'échelle continentale. L'AUL comble ce vide.
               </p>
               <p className="leading-relaxed text-base" style={{ color: "#6b6b60" }}>
-                Inspirés par les modèles NCAA, UEFA, BAL et FIFA, nous construisons trois ligues complémentaires — AUFL (football), AUBL (basketball masculin), AWBL (basketball féminin) — qui allient excellence sportive, formation académique et rayonnement continental.
+                Fondée à Dakar par Ahmadou Wathie, l'AUL organise des compétitions d'élite, produit du contenu médiatique premium, crée des voies concrètes vers le sport professionnel, et construit un écosystème numérique qui amplifie le sport universitaire africain à l'échelle mondiale.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "8",  label: "Universités membres" },
-                { value: "5",  label: "Pays représentés" },
-                { value: "3",  label: "Ligues (AUFL · AUBL · AWBL)" },
-                { value: "∞",  label: "Talents à révéler" },
+                { value: "6",    label: "Universités membres AUFL" },
+                { value: "5",    label: "Pays représentés" },
+                { value: "3",    label: "Ligues (AUFL · AUBL · AWBL)" },
+                { value: "10M+", label: "Étudiants universitaires en Afrique" },
               ].map((stat) => (
                 <div key={stat.label} className="p-6 border" style={{ backgroundColor: "#ffffff", borderColor: "#e2e0d8" }}>
                   <div className="leading-none mb-2" style={{ fontFamily: "var(--font-display)", fontSize: "3rem", color: GREEN }}>

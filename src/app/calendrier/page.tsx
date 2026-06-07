@@ -1,34 +1,62 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
+const FILTERS = [
+  { key: "all",  label: "Toutes les compétitions" },
+  { key: "AUFL", label: "AUFL — Football" },
+  { key: "AUBL", label: "AUBL — Basketball" },
+  { key: "AWBL", label: "AWBL — Basketball Féminin" },
+];
+
 const phases = [
   {
-    name: "Demi-finales — AUFL Football",
+    name: "Phase de groupes — AUFL 2027",
     color: "#c5a059",
+    competition: "AUFL",
     matches: [
-      { id: "sf1", date: "20 Mai 2026", time: "18:00", home: "Univ. de Dakar", away: "Univ. de Nairobi", venue: "Stade Léopold S. Senghor", round: "Demi-finale 1", competition: "AUFL", status: "upcoming" },
-      { id: "sf2", date: "20 Mai 2026", time: "21:00", home: "Univ. du Caire", away: "Univ. de Lagos", venue: "Cairo International Stadium", round: "Demi-finale 2", competition: "AUFL", status: "upcoming" },
-      { id: "sf3", date: "23 Mai 2026", time: "19:00", home: "Univ. d'Accra", away: "Univ. de Tunis", venue: "Accra Sports Stadium", round: "Demi-finale 3", competition: "AUL", status: "upcoming" },
+      { id: "gs01", date: "10 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Gambie",      venue: "Stade L.S. Senghor, Dakar", round: "GS-01 — Groupe A", competition: "AUFL", status: "played", score: "3 – 0" },
+      { id: "gs02", date: "10 Mar 2027", time: "18:00", home: "Univ. de Cape Town",     away: "Univ. Félix H-B",      venue: "Stade L.S. Senghor, Dakar", round: "GS-02 — Groupe B", competition: "AUFL", status: "played", score: "2 – 1" },
+      { id: "gs03", date: "12 Mar 2027", time: "15:00", home: "Univ. de Thiès",         away: "Univ. Thomas Sankara", venue: "Stade L.S. Senghor, Dakar", round: "GS-03 — Groupe A", competition: "AUFL", status: "played", score: "2 – 0" },
+      { id: "gs04", date: "12 Mar 2027", time: "18:00", home: "Univ. de Gambie",        away: "Univ. Thomas Sankara", venue: "Stade L.S. Senghor, Dakar", round: "GS-04 — Groupe A", competition: "AUFL", status: "played", score: "1 – 1" },
+      { id: "gs05", date: "14 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Thiès",       venue: "Stade L.S. Senghor, Dakar", round: "GS-05 — Groupe A", competition: "AUFL", status: "played", score: "1 – 0" },
+      { id: "gs06", date: "14 Mar 2027", time: "18:00", home: "Univ. de Cape Town",     away: "Univ. Félix H-B",      venue: "Stade L.S. Senghor, Dakar", round: "GS-06 — Groupe B", competition: "AUFL", status: "played", score: "1 – 0" },
     ],
   },
   {
-    name: "Finale — AUFL",
+    name: "Demi-finales — AUFL 2027",
     color: "#c5a059",
+    competition: "AUFL",
     matches: [
-      { id: "f1", date: "25 Mai 2026", time: "20:00", home: "TBD", away: "TBD", venue: "Kigali Pelé Stadium", round: "Finale", competition: "AUFL", status: "final" },
+      { id: "df01", date: "20 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Cape Town", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 1", competition: "AUFL", status: "upcoming" },
+      { id: "df02", date: "20 Mar 2027", time: "18:00", home: "Univ. de Thiès",         away: "Univ. de Cape Town", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 2", competition: "AUFL", status: "upcoming" },
     ],
   },
   {
-    name: "Phase de groupes — Terminée",
-    color: "var(--color-muted-foreground)",
+    name: "Finale — AUFL 2027",
+    color: "#c5a059",
+    competition: "AUFL",
     matches: [
-      { id: "g1", date: "2 Avr 2026", time: "—", home: "Univ. de Dakar", away: "Univ. d'Accra", venue: "Stade L.S. Senghor", round: "Groupe A", competition: "AUFL", status: "played", score: "2 – 0" },
-      { id: "g2", date: "3 Avr 2026", time: "—", home: "Univ. de Nairobi", away: "Univ. du Caire", venue: "Nairobi Stadium", round: "Groupe B", competition: "AUL", status: "played", score: "1 – 2" },
-      { id: "g3", date: "5 Avr 2026", time: "—", home: "Univ. de Lagos", away: "Univ. de Tunis", venue: "Lagos National Stadium", round: "Groupe C", competition: "AUFL", status: "played", score: "1 – 1" },
-      { id: "g4", date: "10 Avr 2026", time: "—", home: "Univ. de Tunis", away: "Univ. de Dakar", venue: "Stade de Rades", round: "Groupe A", competition: "AUL", status: "played", score: "0 – 3" },
-      { id: "g5", date: "12 Avr 2026", time: "—", home: "Univ. du Caire", away: "Univ. de Lagos", venue: "Cairo International Stadium", round: "Groupe C", competition: "AUFL", status: "played", score: "2 – 1" },
-      { id: "g6", date: "15 Avr 2026", time: "—", home: "Univ. d'Accra", away: "Univ. de Nairobi", venue: "Accra Sports Stadium", round: "Groupe B", competition: "AUL", status: "played", score: "1 – 2" },
+      { id: "f1", date: "25 Mar 2027", time: "18:00", home: "TBD", away: "TBD", venue: "Stade L.S. Senghor, Dakar", round: "Finale AUFL 2027", competition: "AUFL", status: "final" },
+    ],
+  },
+  {
+    name: "AUBL 2027 — Saison à venir",
+    color: "#3b82f6",
+    competition: "AUBL",
+    matches: [
+      { id: "aubl-1", date: "À définir", time: "—", home: "TBD", away: "TBD", venue: "À confirmer", round: "Saison inaugurale 2027", competition: "AUBL", status: "upcoming" },
+    ],
+  },
+  {
+    name: "AWBL 2027 — Saison à venir",
+    color: "#a855f7",
+    competition: "AWBL",
+    matches: [
+      { id: "awbl-1", date: "À définir", time: "—", home: "TBD", away: "TBD", venue: "À confirmer", round: "Saison inaugurale 2027", competition: "AWBL", status: "upcoming" },
     ],
   },
 ];
@@ -47,16 +75,13 @@ interface Match {
 }
 
 function MatchRow({ match }: { match: Match }) {
-  const isPlayed = match.status === "played";
-  const isFinal = match.status === "final";
+  const isPlayed   = match.status === "played";
+  const isFinal    = match.status === "final";
+  const accentColor = match.competition === "AUBL" ? "#3b82f6" : match.competition === "AWBL" ? "#a855f7" : "#c5a059";
 
   return (
-    <div
-      className={`py-4 border-b border-[--color-border] last:border-0 group transition-colors -mx-4 md:-mx-6 px-4 md:px-6 ${
-        isFinal ? "bg-[--color-secondary]/5" : "hover:bg-[--color-muted]"
-      }`}
-    >
-      {/* Mobile layout */}
+    <div className={`py-4 border-b border-[--color-border] last:border-0 group transition-colors -mx-4 md:-mx-6 px-4 md:px-6 ${isFinal ? "bg-[--color-secondary]/5" : "hover:bg-[--color-muted]"}`}>
+      {/* Mobile */}
       <div className="flex md:hidden flex-col gap-2">
         <div className="flex items-center justify-between">
           <div>
@@ -64,68 +89,48 @@ function MatchRow({ match }: { match: Match }) {
             <div className="text-xs text-[--color-muted-foreground]">{match.time}</div>
           </div>
           <div className="flex gap-1.5">
-            <span
-              className={`inline-block text-[9px] font-black uppercase tracking-[0.12em] px-2 py-1 ${
-                isFinal ? "bg-[--color-secondary] text-[--color-dark]" : "border border-[--color-border] text-[--color-muted-foreground]"
-              }`}
-            >
+            <span className={`inline-block text-[9px] font-black uppercase tracking-[0.12em] px-2 py-1 ${isFinal ? "text-[--color-dark]" : "border border-[--color-border] text-[--color-muted-foreground]"}`}
+              style={isFinal ? { backgroundColor: accentColor } : {}}>
               {match.round}
             </span>
-            <span className="text-[8px] font-black uppercase tracking-widest px-2 py-1" style={{ border: "1px solid rgba(197,160,89,0.3)", color: "#c5a059" }}>
+            <span className="text-[8px] font-black uppercase tracking-widest px-2 py-1" style={{ border: `1px solid ${accentColor}40`, color: accentColor }}>
               {match.competition}
             </span>
           </div>
         </div>
         <div className="flex items-center gap-3 justify-center py-1">
-          <span className={`flex-1 text-right text-sm font-semibold uppercase tracking-wide ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground]"}`}>
-            {match.home}
-          </span>
-          {isPlayed && match.score ? (
-            <span className="shrink-0 font-black text-base px-3" style={{ fontFamily: "var(--font-display)", color: "#c5a059", letterSpacing: "0.08em" }}>
-              {match.score}
-            </span>
-          ) : (
-            <span className="shrink-0 text-sm font-black" style={{ color: "#c5a059" }}>VS</span>
-          )}
-          <span className={`flex-1 text-sm font-semibold uppercase tracking-wide ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground]"}`}>
-            {match.away}
-          </span>
+          <span className={`flex-1 text-right text-sm font-semibold uppercase tracking-wide ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground]"}`}>{match.home}</span>
+          {isPlayed && match.score
+            ? <span className="shrink-0 font-black text-base px-3" style={{ fontFamily: "var(--font-display)", color: accentColor, letterSpacing: "0.08em" }}>{match.score}</span>
+            : <span className="shrink-0 text-sm font-black" style={{ color: accentColor }}>VS</span>
+          }
+          <span className={`flex-1 text-sm font-semibold uppercase tracking-wide ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground]"}`}>{match.away}</span>
         </div>
         <div className="text-[10px] font-semibold uppercase tracking-widest text-[--color-muted-foreground] text-center">{match.venue}</div>
       </div>
 
-      {/* Desktop layout */}
+      {/* Desktop */}
       <div className="hidden md:flex items-center gap-6">
         <div className="w-28 shrink-0">
           <div className="text-sm font-semibold text-[--color-foreground]">{match.date}</div>
           <div className="text-xs text-[--color-muted-foreground] mt-0.5">{match.time}</div>
         </div>
         <div className="w-36 shrink-0 flex flex-col gap-1">
-          <span
-            className={`inline-block text-[9px] font-black uppercase tracking-[0.14em] px-2.5 py-1 w-max ${
-              isFinal ? "bg-[--color-secondary] text-[--color-dark]" : "border border-[--color-border] text-[--color-muted-foreground]"
-            }`}
-          >
+          <span className={`inline-block text-[9px] font-black uppercase tracking-[0.14em] px-2.5 py-1 w-max ${isFinal ? "text-[--color-dark]" : "border border-[--color-border] text-[--color-muted-foreground]"}`}
+            style={isFinal ? { backgroundColor: accentColor } : {}}>
             {match.round}
           </span>
-          <span className="text-[8px] font-black uppercase tracking-widest px-2 py-0.5 w-max" style={{ border: "1px solid rgba(197,160,89,0.3)", color: "#c5a059" }}>
+          <span className="text-[8px] font-black uppercase tracking-widest px-2 py-0.5 w-max" style={{ border: `1px solid ${accentColor}40`, color: accentColor }}>
             {match.competition}
           </span>
         </div>
         <div className="flex-1 flex items-center gap-4 min-w-0">
-          <span className={`flex-1 text-right text-sm font-semibold uppercase tracking-wide truncate transition-colors ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground] group-hover:text-[--color-primary]"}`}>
-            {match.home}
-          </span>
-          {isPlayed && match.score ? (
-            <span className="shrink-0 font-black text-base px-4" style={{ fontFamily: "var(--font-display)", color: "#c5a059", letterSpacing: "0.08em" }}>
-              {match.score}
-            </span>
-          ) : (
-            <span className="shrink-0" style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", letterSpacing: "0.08em", color: "#c5a059" }}>VS</span>
-          )}
-          <span className={`flex-1 text-sm font-semibold uppercase tracking-wide truncate transition-colors ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground] group-hover:text-[--color-primary]"}`}>
-            {match.away}
-          </span>
+          <span className={`flex-1 text-right text-sm font-semibold uppercase tracking-wide truncate transition-colors ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground] group-hover:text-[--color-primary]"}`}>{match.home}</span>
+          {isPlayed && match.score
+            ? <span className="shrink-0 font-black text-base px-4" style={{ fontFamily: "var(--font-display)", color: accentColor, letterSpacing: "0.08em" }}>{match.score}</span>
+            : <span className="shrink-0" style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", letterSpacing: "0.08em", color: accentColor }}>VS</span>
+          }
+          <span className={`flex-1 text-sm font-semibold uppercase tracking-wide truncate transition-colors ${isPlayed ? "text-[--color-muted-foreground]" : "text-[--color-foreground] group-hover:text-[--color-primary]"}`}>{match.away}</span>
         </div>
         <div className="w-40 shrink-0 text-right">
           <div className="text-xs font-semibold uppercase tracking-widest text-[--color-muted-foreground]">{match.venue}</div>
@@ -136,53 +141,69 @@ function MatchRow({ match }: { match: Match }) {
 }
 
 export default function CalendrierPage() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const visiblePhases = activeFilter === "all"
+    ? phases
+    : phases.filter((p) => p.competition === activeFilter);
+
   return (
     <>
       <Navbar />
       <PageHeader
-        label="Saison 2026"
+        label="Saison 2027"
         title="Calendrier"
-        subtitle="Tous les matchs AUFL de la saison 2026 — phases de groupes, demi-finales et finale."
+        subtitle="Tous les matchs AUFL de la saison inaugurale 2027 — 6 universités, Dakar, Sénégal."
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
         <div className="max-w-5xl mx-auto">
-          {/* Competition filter tabs */}
+
+          {/* Filter tabs */}
           <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-            {["Toutes les compétitions", "AUFL — Football", "AUBL — Basketball", "AWBL — Basketball Féminin"].map((tab, i) => (
-              <button
-                key={tab}
-                className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] border transition-colors"
-                style={i === 0
-                  ? { backgroundColor: "#043927", borderColor: "#043927", color: "#ffffff" }
-                  : { borderColor: "var(--color-border)", color: "var(--color-muted-foreground)" }
-                }
-              >
-                {tab}
-              </button>
-            ))}
+            {FILTERS.map((f) => {
+              const isActive = activeFilter === f.key;
+              const accentColor = f.key === "AUBL" ? "#3b82f6" : f.key === "AWBL" ? "#a855f7" : "#043927";
+              return (
+                <button
+                  key={f.key}
+                  onClick={() => setActiveFilter(f.key)}
+                  className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] border transition-colors cursor-pointer"
+                  style={isActive
+                    ? { backgroundColor: accentColor, borderColor: accentColor, color: "#ffffff" }
+                    : { borderColor: "var(--color-border)", color: "var(--color-muted-foreground)", backgroundColor: "transparent" }
+                  }
+                >
+                  {f.label}
+                </button>
+              );
+            })}
           </div>
 
-          <div className="flex flex-col gap-14">
-            {phases.map((phase) => (
-              <div key={phase.name}>
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="block w-10 h-[3px]" style={{ background: phase.color }} />
-                  <h2
-                    className="uppercase text-[--color-foreground]"
-                    style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", letterSpacing: "0.06em" }}
-                  >
-                    {phase.name}
-                  </h2>
+          {visiblePhases.length === 0 ? (
+            <div className="py-16 text-center text-[--color-muted-foreground] text-sm font-semibold uppercase tracking-widest">
+              Aucun match disponible pour cette compétition.
+            </div>
+          ) : (
+            <div className="flex flex-col gap-14">
+              {visiblePhases.map((phase) => (
+                <div key={phase.name}>
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className="block w-10 h-[3px]" style={{ background: phase.color }} />
+                    <h2 className="uppercase text-[--color-foreground]" style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", letterSpacing: "0.06em" }}>
+                      {phase.name}
+                    </h2>
+                  </div>
+                  <div className="bg-[--color-surface] border border-[--color-border] px-6">
+                    {phase.matches.map((match) => (
+                      <MatchRow key={match.id} match={match} />
+                    ))}
+                  </div>
                 </div>
-                <div className="bg-[--color-surface] border border-[--color-border] px-6">
-                  {phase.matches.map((match) => (
-                    <MatchRow key={match.id} match={match} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
+
         </div>
       </main>
 

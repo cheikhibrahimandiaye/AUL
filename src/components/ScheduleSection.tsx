@@ -18,10 +18,9 @@ interface ScheduleMatch {
 }
 
 const upcomingMatches: ScheduleMatch[] = [
-  { id: "1", date: "20", day: "Mai", homeTeam: "Univ. de Dakar",  awayTeam: "Univ. de Nairobi", time: "18:00", venue: "Stade L.S. Senghor",        round: "Demi-finale 1", competition: "AUFL" },
-  { id: "2", date: "20", day: "Mai", homeTeam: "Univ. du Caire",  awayTeam: "Univ. de Lagos",   time: "21:00", venue: "Cairo International Stadium", round: "Demi-finale 2", competition: "AUL"  },
-  { id: "3", date: "23", day: "Mai", homeTeam: "Univ. d'Accra",   awayTeam: "Univ. de Tunis",   time: "19:00", venue: "Accra Sports Stadium",        round: "Demi-finale 3", competition: "AUFL" },
-  { id: "4", date: "25", day: "Mai", homeTeam: "TBD",             awayTeam: "TBD",              time: "20:00", venue: "Kigali Pelé Stadium",         round: "Finale",        competition: "AUFL", isHighlight: true },
+  { id: "1", date: "20", day: "Mar", homeTeam: "Univ. Cheikh Anta Diop", awayTeam: "Univ. de Cape Town", time: "15:00", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 1", competition: "AUFL" },
+  { id: "2", date: "20", day: "Mar", homeTeam: "Univ. de Thiès",         awayTeam: "Univ. de Cape Town", time: "18:00", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 2", competition: "AUFL" },
+  { id: "3", date: "25", day: "Mar", homeTeam: "TBD",                    awayTeam: "TBD",                time: "18:00", venue: "Stade L.S. Senghor, Dakar", round: "Finale AUFL 2027", competition: "AUFL", isHighlight: true },
 ];
 
 export default function ScheduleSection() {
@@ -32,7 +31,7 @@ export default function ScheduleSection() {
   return (
     <section className="px-5 md:px-12 py-10 md:py-16 relative overflow-hidden" style={{ backgroundColor: "#0c0c0a" }}>
       <div aria-hidden="true" className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none leading-none text-white" style={{ fontFamily: "var(--font-display)", fontSize: "18rem", opacity: 0.03, letterSpacing: "-0.04em" }}>
-        2026
+        2027
       </div>
 
       <div className="relative z-10 max-w-5xl">
