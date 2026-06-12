@@ -91,8 +91,8 @@ export default function HeroBanner({
       <div className="absolute bottom-0 left-0 right-0 h-1 z-20" style={{ backgroundColor: accentColor }} aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end pb-14 md:pb-16 pl-5 md:pl-16 pr-5 md:pr-8 w-full max-w-3xl">
-        <div className="animate-fade-up flex items-center gap-3 mb-8">
+      <div className="relative z-10 flex flex-col justify-end pb-[max(5.5rem,calc(env(safe-area-inset-bottom)+4.5rem))] md:pb-16 pl-5 md:pl-16 pr-5 md:pr-8 w-full max-w-3xl">
+        <div className="animate-fade-up flex items-center gap-3 mb-5 md:mb-8">
           <div className="w-6 h-[2px]" style={{ backgroundColor: accentColor }} />
           <span className="text-[10px] font-bold uppercase tracking-[0.22em]" style={{ color: accentColor }}>
             {resolvedTag}
@@ -111,9 +111,9 @@ export default function HeroBanner({
         </p>
 
         <div className="animate-fade-up delay-300 flex items-center gap-4">
-          <a href={ctaHref} className="hero-cta inline-flex items-center gap-3 px-7 py-4 text-[13px] font-bold uppercase tracking-[0.12em] transition-colors duration-200" style={{ backgroundColor: accentColor, color: "#0c0c0a" }}>
+          <a href={ctaHref} className="hero-cta inline-flex items-center gap-2.5 md:gap-3 px-5 py-3 md:px-7 md:py-4 text-[11px] md:text-[13px] font-bold uppercase tracking-[0.14em] md:tracking-[0.12em] transition-colors duration-200" style={{ backgroundColor: accentColor, color: "#0c0c0a" }}>
             {resolvedCta}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
