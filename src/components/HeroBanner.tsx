@@ -65,9 +65,16 @@ export default function HeroBanner({
         className="absolute inset-x-0 bottom-0 w-full object-cover"
         style={{ opacity: 0.92, height: "130%", objectPosition: "55% center", willChange: "transform" }}
       />
+      {/* Desktop overlay: side gradient for left-aligned text */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{ background: "linear-gradient(105deg, #0c0c0a 0%, #0c0c0a 30%, rgba(12,12,10,0.55) 55%, rgba(12,12,10,0.05) 100%)" }}
+        aria-hidden="true"
+      />
+      {/* Mobile overlay: bottom-up gradient keeps the image visible, text legible at the bottom */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{ background: "linear-gradient(to top, #0c0c0a 0%, rgba(12,12,10,0.82) 22%, rgba(12,12,10,0.25) 50%, rgba(12,12,10,0.05) 75%, transparent 100%)" }}
         aria-hidden="true"
       />
       <div className="absolute bottom-0 left-0 right-0 h-1 z-20" style={{ backgroundColor: accentColor }} aria-hidden="true" />
@@ -82,13 +89,13 @@ export default function HeroBanner({
         </div>
 
         <h1
-          className="animate-fade-up delay-100 uppercase leading-none mb-6 text-white"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3.5rem, 7vw, 6.5rem)", letterSpacing: "0.01em", textShadow: "0 2px 40px rgba(0,0,0,0.4)" }}
+          className="animate-fade-up delay-100 uppercase leading-none mb-5 md:mb-6 text-white"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.6rem, 7vw, 6.5rem)", letterSpacing: "0.01em", textShadow: "0 2px 40px rgba(0,0,0,0.4)" }}
         >
           {resolvedTitle}
         </h1>
 
-        <p className="animate-fade-up delay-200 text-base font-normal leading-relaxed max-w-lg mb-10" style={{ color: "rgba(255,255,255,0.7)" }}>
+        <p className="animate-fade-up delay-200 hidden md:block text-base font-normal leading-relaxed max-w-lg mb-10" style={{ color: "rgba(255,255,255,0.7)" }}>
           {resolvedDesc}
         </p>
 
@@ -99,7 +106,7 @@ export default function HeroBanner({
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <a href={secondaryHref} className="text-[12px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <a href={secondaryHref} className="hidden md:inline text-[12px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.5)" }}>
             {resolvedSecondary}
           </a>
         </div>
