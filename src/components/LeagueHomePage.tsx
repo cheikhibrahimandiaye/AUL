@@ -67,33 +67,44 @@ function LeagueScheduleSection({ league }: { league: League }) {
           {league.matches.map((match, idx) => (
             <div
               key={match.id}
-              className="flex flex-wrap md:flex-nowrap items-center gap-4 md:gap-8 py-5 group cursor-pointer transition-all duration-200 -mx-4 px-4"
+              className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-5 group cursor-pointer transition-all duration-200 -mx-4 px-4"
               style={{
                 borderBottom: idx < league.matches.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
                 backgroundColor: match.isHighlight ? `${accent}10` : undefined,
               }}
             >
-              <div className="w-14 shrink-0 text-center">
-                <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "2.8rem", color: match.isHighlight ? accent : "rgba(255,255,255,0.9)" }}>
-                  {match.date}
+              {/* Mobile top row: date + badges + time / desktop: separate columns (md:contents) */}
+              <div className="flex items-center justify-between gap-4 md:contents">
+                <div className="w-14 shrink-0 text-center">
+                  <div className="leading-none text-[2.2rem] md:text-[2.8rem]" style={{ fontFamily: "var(--font-display)", color: match.isHighlight ? accent : "rgba(255,255,255,0.9)" }}>
+                    {match.date}
+                  </div>
+                  <div className="text-[9px] font-bold uppercase tracking-[0.16em] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+                    {match.day}
+                  </div>
                 </div>
-                <div className="text-[9px] font-bold uppercase tracking-[0.16em] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {match.day}
+                <div className="shrink-0 flex flex-col items-center md:items-start gap-1.5 md:w-32">
+                  <span
+                    className="inline-block text-[9px] font-black uppercase tracking-[0.14em] px-3 py-1.5 w-max"
+                    style={match.isHighlight
+                      ? { backgroundColor: accent, color: "#0c0c0a" }
+                      : { border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.4)" }
+                    }
+                  >
+                    {match.round}
+                  </span>
+                  <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: `1px solid ${accent}50`, color: accent }}>
+                    {league.label}
+                  </span>
                 </div>
-              </div>
-              <div className="shrink-0 flex flex-col gap-1.5 w-32">
-                <span
-                  className="inline-block text-[9px] font-black uppercase tracking-[0.14em] px-3 py-1.5 w-max"
-                  style={match.isHighlight
-                    ? { backgroundColor: accent, color: "#0c0c0a" }
-                    : { border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.4)" }
-                  }
-                >
-                  {match.round}
-                </span>
-                <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: `1px solid ${accent}50`, color: accent }}>
-                  {league.label}
-                </span>
+                <div className="shrink-0 text-right md:order-last">
+                  <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "rgba(255,255,255,0.9)" }}>
+                    {match.time}
+                  </div>
+                  <div className="hidden md:block text-[10px] font-semibold uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
+                    {match.venue}
+                  </div>
+                </div>
               </div>
               <div className="flex-1 flex items-center gap-4">
                 <span className="flex-1 text-right font-semibold uppercase tracking-wide text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
@@ -104,13 +115,9 @@ function LeagueScheduleSection({ league }: { league: League }) {
                   {match.awayTeam}
                 </span>
               </div>
-              <div className="shrink-0 text-right">
-                <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "rgba(255,255,255,0.9)" }}>
-                  {match.time}
-                </div>
-                <div className="text-[10px] font-semibold uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {match.venue}
-                </div>
+              {/* Venue (mobile only, under the matchup) */}
+              <div className="md:hidden text-center text-[10px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.3)" }}>
+                {match.venue}
               </div>
             </div>
           ))}
@@ -230,6 +237,7 @@ export default function LeagueHomePage({ league }: LeagueHomePageProps) {
     <>
       <HeroBanner
         imageSrc={league.heroImage}
+        imageSrcMobile={league.heroImageMobile}
         imageAlt={league.heroAlt}
         accentColor={league.accentColor}
         tag={league.tag}

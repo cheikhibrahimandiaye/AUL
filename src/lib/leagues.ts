@@ -6,6 +6,7 @@ export interface League {
   accentColor: string;
   href: string;
   heroImage: string;
+  heroImageMobile?: string;
   heroAlt: string;
   tag: string;
   title: string;
@@ -75,6 +76,7 @@ export const LEAGUES: League[] = [
     accentColor: "#c5a059",
     href: "/aufl",
     heroImage: "/hero-aufl-2.jpg",
+    heroImageMobile: "/hero-aufl-2-mobile.jpg",
     heroAlt: "Joueurs de football universitaire africain célébrant un but",
     tag: "African University Football League",
     title: "La Référence du Football Universitaire Africain",
