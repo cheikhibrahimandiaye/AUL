@@ -351,13 +351,19 @@ export default function ArticlePage() {
         <div className="px-5 md:px-12 py-10 md:py-16">
           <div className="max-w-3xl mx-auto">
 
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 mb-8 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: "#6b6b60" }}>
-              <Link href="/actualites" className="hover:text-[#c5a059] transition-colors">
-                {lang === "fr" ? "Actualités" : "News"}
+            {/* Back + breadcrumb */}
+            <div className="flex items-center justify-between gap-4 mb-8">
+              <Link
+                href="/actualites"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.16em] transition-colors hover:text-[#0c0c0a]"
+                style={{ border: "1px solid #e2e0d8", backgroundColor: "#ffffff", color: "#6b6b60" }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                {backLabel}
               </Link>
-              <span>›</span>
-              <span style={{ color: "#c5a059" }}>{article.tag}</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: "#c5a059" }}>{article.tag}</span>
             </div>
 
             {/* Header */}

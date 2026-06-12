@@ -16,7 +16,7 @@ export default function PageHeader({ label, title, subtitle }: PageHeaderProps) 
       {/* Phantom text */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none"
+        className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none hidden md:block"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "16rem",

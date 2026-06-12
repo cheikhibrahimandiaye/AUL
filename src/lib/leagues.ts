@@ -98,9 +98,9 @@ export const LEAGUES: League[] = [
       { id: "1", date: "—", day: "2027", homeTeam: "TBD", awayTeam: "TBD", time: "—", venue: "Stade L.S. Senghor, Dakar", round: "Saison inaugurale 2027", isHighlight: true },
     ],
     videos: [
-      { id: "v1", title: "AUFL × Kigali | Finale de Conférence | Saison 1", title_en: "AUFL × Kigali | Conference Final | Season 1", date: "17 Mai 2026", thumb: IMG.video_football1, featured: true },
-      { id: "v2", title: "Récap Conférence Ouest | AUFL Saison 1", title_en: "West Conference Recap | AUFL Season 1", date: "15 Mai 2026", thumb: IMG.video_football2, featured: false },
-      { id: "v3", title: "Top 10 Actions | Conférence Sahel | Saison 1", title_en: "Top 10 Plays | Sahel Conference | Season 1", date: "13 Mai 2026", thumb: IMG.video_football3, featured: false },
+      { id: "v1", title: "Présentation de l'AUFL — Saison inaugurale 2027", title_en: "AUFL Presentation — Inaugural Season 2027", date: "1 Juin 2026", thumb: "/photo-aufl-2027.jpg", featured: true },
+      { id: "v2", title: "Dakar, ville hôte de l'AUFL 2027", title_en: "Dakar, host city of AUFL 2027", date: "28 Mai 2026", thumb: "/photo-dakar.jpg", featured: false },
+      { id: "v3", title: "AUL × IFL : le football universitaire en action", title_en: "AUL × IFL: university football in action", date: "25 Mai 2026", thumb: "/photo-football-league.jpg", featured: false },
     ],
     news: [
       { id: "aufl-2027-presentation", category: "AUFL", title: "AUFL 2027 : 6 universités, 5 pays, une seule championne", title_en: "AUFL 2027: 6 universities, 5 countries, one champion", excerpt: "La Ligue Africaine de Football Universitaire lance son édition inaugurale en mars 2027 à Dakar.", excerpt_en: "The African University Football League launches its inaugural edition in March 2027 in Dakar.", date: "15 Jan 2027", image: "/photo-aufl-2027.jpg", featured: true },
@@ -137,8 +137,8 @@ export const LEAGUES: League[] = [
     ],
     news: [
       { id: "aubl-saison-2027", category: "AUBL", title: "L'AUBL annonce sa saison inaugurale", title_en: "AUBL announces inaugural season", excerpt: "La ligue de basketball masculin de l'AUL ouvre ses candidatures pour la saison 2027.", excerpt_en: "AUL's men's basketball league opens applications for the 2027 season.", date: "1 Juin 2026", image: "/photo-aubl-article.jpg", featured: true },
-      { id: "n2", category: "AUBL", title: "12 universités candidates", title_en: "12 universities apply", excerpt: "Un engouement fort pour la première saison de l'AUBL avec des candidatures de 8 pays.", excerpt_en: "Strong interest for AUBL's first season with applications from 8 countries.", date: "30 Mai 2026", image: "/logo-aubl.jpg", featured: false },
-      { id: "n3", category: "AUBL", title: "Format de compétition dévoilé", title_en: "Competition format unveiled", excerpt: "Phase de groupes, playoffs et finale — le format complet de l'AUBL 2027 est connu.", excerpt_en: "Group stage, playoffs and final — the full AUBL 2027 format is revealed.", date: "28 Mai 2026", image: "/logo-aubl.jpg", featured: false },
+      { id: "ahmadou-wathie-fondateur-aul", category: "AUL", title: "Ahmadou Wathie : « L'Afrique a le plus grand vivier de talents sportifs au monde »", title_en: "Ahmadou Wathie: « Africa has the largest pool of sports talent in the world »", excerpt: "Le fondateur de l'AUL revient sur la genèse du projet et sa vision pour les trois ligues.", excerpt_en: "The AUL founder looks back at the project's origins and his vision for the three leagues.", date: "1 Juin 2025", image: "/ahmadou-wathie.jpg", featured: false },
+      { id: "awbl-saison-2027", category: "AWBL", title: "L'AWBL ouvre ses candidatures", title_en: "AWBL opens applications", excerpt: "Le basketball féminin universitaire africain prend son envol avec la saison inaugurale 2027.", excerpt_en: "African university women's basketball takes off with the inaugural 2027 season.", date: "1 Juin 2026", image: "/photo-awbl-article.jpg", featured: false },
     ],
   },
   {
@@ -169,8 +169,8 @@ export const LEAGUES: League[] = [
     ],
     news: [
       { id: "awbl-saison-2027", category: "AWBL", title: "L'AWBL annonce sa saison inaugurale", title_en: "AWBL announces inaugural season", excerpt: "La ligue de basketball féminin de l'AUL ouvre ses candidatures pour la saison 2027.", excerpt_en: "AUL's women's basketball league opens applications for the 2027 season.", date: "1 Juin 2026", image: "/photo-awbl-article.jpg", featured: true },
-      { id: "n2", category: "AWBL", title: "Visibilité pour les athlètes féminines", title_en: "Visibility for women athletes", excerpt: "L'AWBL représente une opportunité historique pour les joueuses universitaires africaines.", excerpt_en: "AWBL represents a historic opportunity for African university women players.", date: "30 Mai 2026", image: "/logo-awbl.jpg", featured: false },
-      { id: "n3", category: "AWBL", title: "Candidatures ouvertes jusqu'au 30 juin", title_en: "Applications open until June 30", excerpt: "Les universités peuvent soumettre leur candidature pour participer à l'AWBL 2027.", excerpt_en: "Universities can submit their application to participate in AWBL 2027.", date: "28 Mai 2026", image: "/logo-awbl.jpg", featured: false },
+      { id: "ahmadou-wathie-fondateur-aul", category: "AUL", title: "Ahmadou Wathie : « L'Afrique a le plus grand vivier de talents sportifs au monde »", title_en: "Ahmadou Wathie: « Africa has the largest pool of sports talent in the world »", excerpt: "Le fondateur de l'AUL revient sur la genèse du projet et sa vision pour les trois ligues.", excerpt_en: "The AUL founder looks back at the project's origins and his vision for the three leagues.", date: "1 Juin 2025", image: "/ahmadou-wathie.jpg", featured: false },
+      { id: "aubl-saison-2027", category: "AUBL", title: "L'AUBL annonce sa saison inaugurale", title_en: "AUBL announces inaugural season", excerpt: "La ligue de basketball masculin de l'AUL ouvre ses candidatures pour la saison 2027.", excerpt_en: "AUL's men's basketball league opens applications for the 2027 season.", date: "1 Juin 2026", image: "/photo-aubl-article.jpg", featured: false },
     ],
   },
 ];

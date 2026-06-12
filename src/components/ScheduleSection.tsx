@@ -28,7 +28,7 @@ export default function ScheduleSection() {
 
   return (
     <section className="px-5 md:px-12 py-10 md:py-16 relative overflow-hidden" style={{ backgroundColor: "#0c0c0a" }}>
-      <div aria-hidden="true" className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none leading-none text-white" style={{ fontFamily: "var(--font-display)", fontSize: "18rem", opacity: 0.03, letterSpacing: "-0.04em" }}>
+      <div aria-hidden="true" className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none leading-none text-white hidden md:block" style={{ fontFamily: "var(--font-display)", fontSize: "18rem", opacity: 0.03, letterSpacing: "-0.04em" }}>
         2027
       </div>
 

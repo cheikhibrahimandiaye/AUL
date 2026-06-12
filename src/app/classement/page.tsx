@@ -1,6 +1,9 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import { useLang } from "@/lib/i18n";
 
 const standings = [
   { rank: 1, university: "Univ. Cheikh Anta Diop", country: "Sénégal", flag: "🇸🇳", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe A" },
@@ -13,21 +16,34 @@ const standings = [
 
 const rankColors: Record<number, string> = { 1: "#c5a059", 2: "#9ca3af", 3: "#b87333" };
 
-const statLeaders = [
-  { stat: "Buts marqués", leader: "À venir", value: "—" },
-  { stat: "Meilleure défense", leader: "À venir", value: "—" },
-  { stat: "Meilleur différentiel", leader: "À venir", value: "—" },
-  { stat: "Invaincu", leader: "À venir", value: "—" },
-];
+const statLeadersData = {
+  fr: [
+    { stat: "Buts marqués", leader: "À venir", value: "—" },
+    { stat: "Meilleure défense", leader: "À venir", value: "—" },
+    { stat: "Meilleur différentiel", leader: "À venir", value: "—" },
+    { stat: "Invaincu", leader: "À venir", value: "—" },
+  ],
+  en: [
+    { stat: "Goals scored", leader: "Coming soon", value: "—" },
+    { stat: "Best defence", leader: "Coming soon", value: "—" },
+    { stat: "Best goal difference", leader: "Coming soon", value: "—" },
+    { stat: "Unbeaten", leader: "Coming soon", value: "—" },
+  ],
+};
 
 export default function ClassementPage() {
+  const { lang } = useLang();
+  const statLeaders = statLeadersData[lang];
+
   return (
     <>
       <Navbar />
       <PageHeader
-        label="Saison 2027"
-        title="Classement"
-        subtitle="Le classement AUFL 2027 (Football) — 6 universités, 5 pays africains, une seule championne."
+        label={lang === "fr" ? "Saison 2027" : "Season 2027"}
+        title={lang === "fr" ? "Classement" : "Standings"}
+        subtitle={lang === "fr"
+          ? "Le classement AUFL 2027 (Football) — 6 universités, 5 pays africains, une seule championne."
+          : "The AUFL 2027 standings (Football) — 6 universities, 5 African countries, one champion."}
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
@@ -161,10 +177,10 @@ export default function ClassementPage() {
           <div className="mt-6 flex flex-wrap items-center gap-3 md:gap-6 text-[10px] font-semibold uppercase tracking-widest text-[--color-muted-foreground]">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 border-l-2 border-l-[--color-primary]" />
-              <span>Qualifié pour les Playoffs</span>
+              <span>{lang === "fr" ? "Qualifié pour les Playoffs" : "Qualified for the Playoffs"}</span>
             </div>
             <span className="hidden md:inline">·</span>
-            <span>MJ = Matchs joués · V = Victoires · D = Défaites</span>
+            <span>{lang === "fr" ? "MJ = Matchs joués · V = Victoires · D = Défaites" : "MJ = Matches played · V = Wins · D = Losses"}</span>
           </div>
         </div>
       </main>

@@ -56,7 +56,7 @@ export default function HeroBanner({
   }, []);
 
   return (
-    <section className="relative flex h-[680px] overflow-hidden grain" style={{ backgroundColor: "#0c0c0a" }}>
+    <section className="relative flex h-[540px] md:h-[680px] overflow-hidden grain" style={{ backgroundColor: "#0c0c0a" }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
@@ -106,7 +106,7 @@ export default function HeroBanner({
       </div>
 
       {/* Edition marker */}
-      <div className="absolute top-8 right-10 z-10 text-right animate-fade-in delay-400">
+      <div className="hidden md:block absolute top-8 right-10 z-10 text-right animate-fade-in delay-400">
         <div className="leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontSize: "4.5rem", color: accentColor, opacity: 0.12 }} aria-hidden="true">
           2027
         </div>

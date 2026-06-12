@@ -1,6 +1,9 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import { useLang } from "@/lib/i18n";
 
 const universities = [
   {
@@ -74,13 +77,31 @@ const universities = [
 const rankColors: Record<number, string> = { 1: "#c5a059", 2: "#9ca3af", 3: "#b87333" };
 
 export default function UniversitesPage() {
+  const { lang } = useLang();
+
+  const stats = lang === "fr"
+    ? [
+        { value: "6", label: "Universités" },
+        { value: "5", label: "Pays" },
+        { value: "3", label: "Ligues" },
+        { value: "1", label: "Champion à couronner" },
+      ]
+    : [
+        { value: "6", label: "Universities" },
+        { value: "5", label: "Countries" },
+        { value: "3", label: "Leagues" },
+        { value: "1", label: "Champion to crown" },
+      ];
+
   return (
     <>
       <Navbar />
       <PageHeader
-        label="Saison 2027"
-        title="Universités"
-        subtitle="Les 6 universités participantes de l'AUFL — des campus africains qui façonnent les champions de demain."
+        label={lang === "fr" ? "Saison 2027" : "Season 2027"}
+        title={lang === "fr" ? "Universités" : "Universities"}
+        subtitle={lang === "fr"
+          ? "Les 6 universités participantes de l'AUFL — des campus africains qui façonnent les champions de demain."
+          : "The 6 participating AUFL universities — African campuses shaping tomorrow's champions."}
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
@@ -88,12 +109,7 @@ export default function UniversitesPage() {
 
           {/* Stats strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-10 md:mb-16 border border-[--color-border]">
-            {[
-              { value: "6", label: "Universités" },
-              { value: "5", label: "Pays" },
-              { value: "10", label: "Matchs joués" },
-              { value: "1", label: "Champion à couronner" },
-            ].map((stat, i) => (
+            {stats.map((stat, i) => (
               <div
                 key={stat.label}
                 className={`px-5 md:px-8 py-6 text-center ${i % 2 === 0 ? "border-r border-[--color-border]" : ""} ${i < 2 ? "border-b md:border-b-0 border-[--color-border]" : ""} md:[&:not(:last-child)]:border-r`}
@@ -164,7 +180,7 @@ export default function UniversitesPage() {
                         {uni.record}
                       </div>
                       <div className="text-[9px] font-bold uppercase tracking-[0.14em] text-[--color-muted-foreground] mt-0.5">
-                        Bilan
+                        {lang === "fr" ? "Bilan" : "Record"}
                       </div>
                     </div>
                   </div>
@@ -177,14 +193,14 @@ export default function UniversitesPage() {
           <div className="mt-10 md:mt-16 border-t border-[--color-border] pt-8 md:pt-12 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
             <div>
               <p className="text-[--color-muted-foreground] text-sm">
-                Votre université n&apos;est pas encore membre de l&apos;AUL ?
+                {lang === "fr" ? "Votre université n'est pas encore membre de l'AUL ?" : "Is your university not yet an AUL member?"}
               </p>
             </div>
             <a
-              href="/contact"
+              href="/contact?sujet=universite#contact-form"
               className="inline-flex items-center gap-3 bg-[--color-primary] text-white px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.12em] hover:bg-[--color-primary-light] transition-colors"
             >
-              Rejoindre la Ligue
+              {lang === "fr" ? "Rejoindre la Ligue" : "Join the League"}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

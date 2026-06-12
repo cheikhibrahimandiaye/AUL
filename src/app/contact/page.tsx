@@ -63,7 +63,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden crosshatch" style={{ backgroundColor: DARK }}>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none"
+          className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none leading-none hidden md:block"
           style={{ fontFamily: "var(--font-display)", fontSize: "20rem", color: "rgba(255,255,255,0.02)", letterSpacing: "-0.04em" }}
         >
           AUL

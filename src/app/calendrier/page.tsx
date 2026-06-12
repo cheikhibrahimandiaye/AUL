@@ -4,12 +4,13 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import { useLang } from "@/lib/i18n";
 
 const FILTERS = [
-  { key: "all",  label: "Toutes les compétitions" },
-  { key: "AUFL", label: "AUFL — Football" },
-  { key: "AUBL", label: "AUBL — Basketball" },
-  { key: "AWBL", label: "AWBL — Basketball Féminin" },
+  { key: "all",  label: "Toutes les compétitions", label_en: "All competitions" },
+  { key: "AUFL", label: "AUFL — Football",          label_en: "AUFL — Football" },
+  { key: "AUBL", label: "AUBL — Basketball",        label_en: "AUBL — Basketball" },
+  { key: "AWBL", label: "AWBL — Basketball Féminin", label_en: "AWBL — Women's Basketball" },
 ];
 
 const phases = [
@@ -119,6 +120,7 @@ function MatchRow({ match }: { match: Match }) {
 }
 
 export default function CalendrierPage() {
+  const { lang } = useLang();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const visiblePhases = activeFilter === "all"
@@ -129,9 +131,11 @@ export default function CalendrierPage() {
     <>
       <Navbar />
       <PageHeader
-        label="Saison 2027"
-        title="Calendrier"
-        subtitle="Tous les matchs AUFL de la saison inaugurale 2027 — 6 universités, Dakar, Sénégal."
+        label={lang === "fr" ? "Saison 2027" : "Season 2027"}
+        title={lang === "fr" ? "Calendrier" : "Schedule"}
+        subtitle={lang === "fr"
+          ? "Tous les matchs AUFL de la saison inaugurale 2027 — 6 universités, Dakar, Sénégal."
+          : "All AUFL matches of the inaugural 2027 season — 6 universities, Dakar, Senegal."}
       />
 
       <main className="bg-[--color-background] px-5 md:px-12 py-10 md:py-16">
@@ -152,7 +156,7 @@ export default function CalendrierPage() {
                     : { borderColor: "var(--color-border)", color: "var(--color-muted-foreground)", backgroundColor: "transparent" }
                   }
                 >
-                  {f.label}
+                  {lang === "fr" ? f.label : f.label_en}
                 </button>
               );
             })}
@@ -160,7 +164,7 @@ export default function CalendrierPage() {
 
           {visiblePhases.length === 0 ? (
             <div className="py-16 text-center text-[--color-muted-foreground] text-sm font-semibold uppercase tracking-widest">
-              Aucun match disponible pour cette compétition.
+              {lang === "fr" ? "Aucun match disponible pour cette compétition." : "No matches available for this competition."}
             </div>
           ) : (
             <div className="flex flex-col gap-14">

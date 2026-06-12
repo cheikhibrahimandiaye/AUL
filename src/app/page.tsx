@@ -10,35 +10,32 @@ import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 
 const IMG = {
-  hero:   "/hero-aufl.jpg",
-  video1: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80",
-  video2: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&q=80",
-  video3: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&q=80",
+  hero: "/hero-aufl.jpg",
 };
 
 const videos = [
   {
     id: "v1",
-    title:    "AUFL × Kigali | Finale de Conférence | Saison 1",
-    title_en: "AUFL × Kigali | Conference Final | Season 1",
-    date: "17 Mai 2026",
-    thumb: IMG.video1,
+    title:    "Présentation de l'AUFL — Saison inaugurale 2027",
+    title_en: "AUFL Presentation — Inaugural Season 2027",
+    date: "1 Juin 2026",
+    thumb: "/photo-aufl-2027.jpg",
     featured: true,
   },
   {
     id: "v2",
-    title:    "Récap Conférence Ouest | AUFL Saison 1",
-    title_en: "West Conference Recap | AUFL Season 1",
-    date: "15 Mai 2026",
-    thumb: IMG.video2,
+    title:    "Dakar, ville hôte de l'AUFL 2027",
+    title_en: "Dakar, host city of AUFL 2027",
+    date: "28 Mai 2026",
+    thumb: "/photo-dakar.jpg",
     featured: false,
   },
   {
     id: "v3",
-    title:    "Top 10 Actions | Conférence Sahel | Saison 1",
-    title_en: "Top 10 Plays | Sahel Conference | Season 1",
-    date: "13 Mai 2026",
-    thumb: IMG.video3,
+    title:    "AUL × IFL : le football universitaire en action",
+    title_en: "AUL × IFL: university football in action",
+    date: "25 Mai 2026",
+    thumb: "/photo-football-league.jpg",
     featured: false,
   },
 ];
