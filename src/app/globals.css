@@ -112,6 +112,21 @@ body {
   100% { transform: translateX(-33.333%); }
 }
 
+/* ── Aurora glow (hero) ────────────────────────────────────────── */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+  50%      { transform: translate3d(-2.5%, 2%, 0) scale(1.07); opacity: 0.8; }
+}
+@keyframes aurora-drift-alt {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); opacity: 0.85; }
+  50%      { transform: translate3d(2%, -2.5%, 0) scale(1); opacity: 1; }
+}
+.aurora-layer     { animation: aurora-drift 16s ease-in-out infinite; will-change: transform, opacity; }
+.aurora-layer-alt { animation: aurora-drift-alt 20s ease-in-out infinite; will-change: transform, opacity; }
+@media (prefers-reduced-motion: reduce) {
+  .aurora-layer, .aurora-layer-alt { animation: none; }
+}
+
 /* ── Scroll reveal ─────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
