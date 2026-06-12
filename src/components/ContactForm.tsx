@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 const GOLD = "#c5a059";
 const GREEN = "#043927";
@@ -10,6 +11,7 @@ const contactReasons = [
   {
     id: "partenariat",
     label: "Devenir Partenaire",
+    label_en: "Become a Partner",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
@@ -19,6 +21,7 @@ const contactReasons = [
   {
     id: "universite",
     label: "Inscrire mon Université",
+    label_en: "Register my University",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10L12 5 2 10l10 5 10-5z" /><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5" />
@@ -28,6 +31,7 @@ const contactReasons = [
   {
     id: "media",
     label: "Médias & Presse",
+    label_en: "Media & Press",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" fill="currentColor" />
@@ -37,6 +41,7 @@ const contactReasons = [
   {
     id: "autre",
     label: "Autre demande",
+    label_en: "Other request",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><circle cx="12" cy="17" r="0.5" fill="currentColor" />
@@ -71,6 +76,7 @@ function Field({
 }
 
 export default function ContactForm() {
+  const { lang } = useLang();
   const [topic, setTopic] = useState("partenariat");
   const [focused, setFocused] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
@@ -93,7 +99,7 @@ export default function ContactForm() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "L'envoi a échoué. Réessayez plus tard.");
+        throw new Error(data?.error ?? (lang === "fr" ? "L'envoi a échoué. Réessayez plus tard." : "Sending failed. Please try again later."));
       }
       setSent(true);
       setName("");
@@ -101,7 +107,7 @@ export default function ContactForm() {
       setEmail("");
       setMessage("");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "L'envoi a échoué. Réessayez plus tard.");
+      setError(err instanceof Error ? err.message : (lang === "fr" ? "L'envoi a échoué. Réessayez plus tard." : "Sending failed. Please try again later."));
     } finally {
       setSending(false);
     }
@@ -137,17 +143,19 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="uppercase mb-3" style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", letterSpacing: "0.05em", color: DARK }}>
-          Message envoyé
+          {lang === "fr" ? "Message envoyé" : "Message sent"}
         </h3>
         <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#6b6b60" }}>
-          Merci pour votre message. Notre équipe vous répondra sous 48h ouvrées.
+          {lang === "fr"
+            ? "Merci pour votre message. Notre équipe vous répondra sous 48h ouvrées."
+            : "Thank you for your message. Our team will reply within 48 business hours."}
         </p>
         <button
           onClick={() => setSent(false)}
           className="mt-8 text-[11px] font-bold uppercase tracking-[0.14em] transition-colors cursor-pointer"
           style={{ color: GOLD, background: "none", border: "none" }}
         >
-          ← Envoyer un autre message
+          {lang === "fr" ? "← Envoyer un autre message" : "← Send another message"}
         </button>
       </div>
     );
@@ -162,7 +170,7 @@ export default function ContactForm() {
       {/* Topic selector */}
       <div>
         <label className="block text-[10px] font-bold uppercase tracking-[0.16em] mb-3" style={{ color: "#6b6b60" }}>
-          Sujet <span style={{ color: GOLD }}>*</span>
+          {lang === "fr" ? "Sujet" : "Subject"} <span style={{ color: GOLD }}>*</span>
         </label>
         <div className="grid grid-cols-2 gap-2.5">
           {contactReasons.map((r) => {
@@ -180,7 +188,7 @@ export default function ContactForm() {
               >
                 <span style={{ color: active ? GOLD : GREEN }}>{r.icon}</span>
                 <span className="text-[10px] font-bold uppercase tracking-[0.1em] leading-tight">
-                  {r.label}
+                  {lang === "fr" ? r.label : r.label_en}
                 </span>
               </button>
             );
@@ -189,11 +197,11 @@ export default function ContactForm() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Field label="Prénom & Nom" required>
+        <Field label={lang === "fr" ? "Prénom & Nom" : "Full Name"} required>
           <input
             type="text"
             required
-            placeholder="Votre nom"
+            placeholder={lang === "fr" ? "Votre nom" : "Your name"}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full px-4 py-3 text-sm focus:outline-none transition-all duration-200"
@@ -202,10 +210,10 @@ export default function ContactForm() {
             onBlur={() => setFocused(null)}
           />
         </Field>
-        <Field label="Organisation">
+        <Field label={lang === "fr" ? "Organisation" : "Organisation"}>
           <input
             type="text"
-            placeholder="Université, entreprise..."
+            placeholder={lang === "fr" ? "Université, entreprise..." : "University, company..."}
             value={organization}
             onChange={(e) => setOrganization(e.target.value)}
             className="w-full px-4 py-3 text-sm focus:outline-none transition-all duration-200"
@@ -234,7 +242,7 @@ export default function ContactForm() {
         <textarea
           rows={6}
           required
-          placeholder="Décrivez votre projet ou votre demande..."
+          placeholder={lang === "fr" ? "Décrivez votre projet ou votre demande..." : "Describe your project or request..."}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="w-full px-4 py-3 text-sm focus:outline-none resize-none transition-all duration-200"
@@ -256,7 +264,9 @@ export default function ContactForm() {
         className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-[12px] font-bold uppercase tracking-[0.14em] transition-all duration-200 cursor-pointer hover:opacity-90 disabled:opacity-60 disabled:cursor-wait"
         style={{ backgroundColor: GOLD, color: DARK }}
       >
-        {sending ? "Envoi en cours..." : "Envoyer le message"}
+        {sending
+          ? (lang === "fr" ? "Envoi en cours..." : "Sending...")
+          : (lang === "fr" ? "Envoyer le message" : "Send message")}
         {!sending && (
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:translate-x-1">
             <path d="M5 12h14M12 5l7 7-7 7" />

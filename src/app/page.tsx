@@ -46,6 +46,7 @@ export default function HomePage() {
       <Navbar />
       <HeroBanner
         imageSrc={IMG.hero}
+        imageSrcMobile="/hero-aufl-mobile.jpg"
         imageAlt="Joueurs de football universitaire africain célébrant un but"
       />
       <MatchTicker />

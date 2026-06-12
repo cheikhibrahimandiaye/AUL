@@ -5,6 +5,7 @@ import { useLang } from "@/lib/i18n";
 
 interface HeroBannerProps {
   imageSrc: string;
+  imageSrcMobile?: string;
   imageAlt: string;
   ctaHref?: string;
   accentColor?: string;
@@ -19,6 +20,7 @@ interface HeroBannerProps {
 
 export default function HeroBanner({
   imageSrc,
+  imageSrcMobile,
   imageAlt,
   ctaHref = "/actualites",
   accentColor = "#c5a059",
@@ -57,13 +59,22 @@ export default function HeroBanner({
 
   return (
     <section className="relative flex h-[100svh] md:h-[680px] overflow-hidden grain" style={{ backgroundColor: "#0c0c0a" }}>
+      {/* Desktop image (parallax) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
         src={imageSrc}
         alt={imageAlt}
-        className="absolute inset-x-0 bottom-0 w-full object-cover"
+        className="hidden md:block absolute inset-x-0 bottom-0 w-full object-cover"
         style={{ opacity: 0.92, height: "130%", objectPosition: "55% center", willChange: "transform" }}
+      />
+      {/* Mobile image (dedicated portrait shot, no parallax) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={imageSrcMobile ?? imageSrc}
+        alt={imageAlt}
+        className="md:hidden absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: "center top" }}
       />
       {/* Desktop overlay: side gradient for left-aligned text */}
       <div
@@ -71,10 +82,10 @@ export default function HeroBanner({
         style={{ background: "linear-gradient(105deg, #0c0c0a 0%, #0c0c0a 30%, rgba(12,12,10,0.55) 55%, rgba(12,12,10,0.05) 100%)" }}
         aria-hidden="true"
       />
-      {/* Mobile overlay: bottom-up gradient keeps the image visible, text legible at the bottom */}
+      {/* Mobile overlay: light bottom-up gradient — image stays the hero, text remains legible */}
       <div
         className="absolute inset-0 md:hidden"
-        style={{ background: "linear-gradient(to top, #0c0c0a 0%, rgba(12,12,10,0.82) 22%, rgba(12,12,10,0.25) 50%, rgba(12,12,10,0.05) 75%, transparent 100%)" }}
+        style={{ background: "linear-gradient(to top, rgba(12,12,10,0.88) 0%, rgba(12,12,10,0.55) 20%, rgba(12,12,10,0.12) 45%, transparent 65%)" }}
         aria-hidden="true"
       />
       <div className="absolute bottom-0 left-0 right-0 h-1 z-20" style={{ backgroundColor: accentColor }} aria-hidden="true" />
