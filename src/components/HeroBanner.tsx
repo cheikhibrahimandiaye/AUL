@@ -82,17 +82,34 @@ export default function HeroBanner({
         style={{ background: "linear-gradient(105deg, #0c0c0a 0%, #0c0c0a 30%, rgba(12,12,10,0.55) 55%, rgba(12,12,10,0.05) 100%)" }}
         aria-hidden="true"
       />
-      {/* Mobile overlay: light bottom-up gradient — image stays the hero, text remains legible */}
+      {/* Mobile overlay: brand gradient rising from the bottom (Farata-style), text stays legible */}
       <div
         className="absolute inset-0 md:hidden"
-        style={{ background: "linear-gradient(to top, rgba(12,12,10,0.88) 0%, rgba(12,12,10,0.55) 20%, rgba(12,12,10,0.12) 45%, transparent 65%)" }}
+        style={{
+          background: `
+            linear-gradient(to top, rgba(4,57,39,0.97) 0%, rgba(4,57,39,0.82) 16%, rgba(6,68,47,0.45) 36%, rgba(12,12,10,0.08) 58%, transparent 75%)
+          `,
+        }}
         aria-hidden="true"
       />
-
-      {/* Aurora glow — gold & deep green blurred blobs, kept away from the text zone (bottom-left) */}
+      {/* Mobile aurora: gold glow behind the CTA + green bloom at the bottom edges */}
       <div
         aria-hidden="true"
-        className="aurora-layer pointer-events-none absolute inset-0 mix-blend-screen"
+        className="aurora-layer pointer-events-none absolute inset-0 md:hidden mix-blend-screen"
+        style={{
+          background: `
+            radial-gradient(ellipse 70% 32% at 50% 102%, ${accentColor}66 0%, transparent 70%),
+            radial-gradient(ellipse 45% 26% at -6% 92%, rgba(22,163,110,0.55) 0%, transparent 70%),
+            radial-gradient(ellipse 45% 26% at 106% 88%, rgba(22,163,110,0.5) 0%, transparent 70%)
+          `,
+          filter: "blur(34px)",
+        }}
+      />
+
+      {/* Desktop aurora: gold & deep green blurred blobs, kept away from the text zone (bottom-left) */}
+      <div
+        aria-hidden="true"
+        className="aurora-layer pointer-events-none absolute inset-0 hidden md:block mix-blend-screen"
         style={{
           background: `
             radial-gradient(ellipse 55% 48% at 85% 10%, ${accentColor}B3 0%, transparent 68%),
@@ -103,7 +120,7 @@ export default function HeroBanner({
       />
       <div
         aria-hidden="true"
-        className="aurora-layer-alt pointer-events-none absolute inset-0 mix-blend-screen"
+        className="aurora-layer-alt pointer-events-none absolute inset-0 hidden md:block mix-blend-screen"
         style={{
           background: `
             radial-gradient(ellipse 46% 42% at 102% 60%, rgba(22,163,110,0.75) 0%, transparent 68%),
