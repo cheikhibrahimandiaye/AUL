@@ -4,20 +4,13 @@ import { useLang } from "@/lib/i18n";
 import NewsSection from "@/components/NewsSection";
 import StandingsWidget from "@/components/StandingsWidget";
 
-const IMG = {
-  article1: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&q=80",
-  article2: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&q=80",
-  article3: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80",
-  article4: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&q=80",
-};
-
 const standingsData = [
-  { rank: 1, university: "Univ. Cheikh Anta Diop", university_en: "Univ. Cheikh Anta Diop", wins: 5, losses: 0 },
-  { rank: 2, university: "Univ. de Thiès",          university_en: "Univ. de Thiès",          wins: 4, losses: 1 },
-  { rank: 3, university: "Univ. de Cape Town",      university_en: "Univ. de Cape Town",      wins: 2, losses: 3 },
-  { rank: 4, university: "Univ. de Gambie",         university_en: "Univ. de Gambie",         wins: 1, losses: 4 },
-  { rank: 5, university: "Univ. Félix H-B",         university_en: "Univ. Félix H-B",         wins: 1, losses: 4 },
-  { rank: 6, university: "Univ. Thomas Sankara",    university_en: "Univ. Thomas Sankara",    wins: 0, losses: 5 },
+  { rank: 1, university: "Univ. Cheikh Anta Diop", university_en: "Univ. Cheikh Anta Diop", wins: 0, losses: 0 },
+  { rank: 2, university: "Univ. de Thiès",          university_en: "Univ. de Thiès",          wins: 0, losses: 0 },
+  { rank: 3, university: "Univ. de Cape Town",      university_en: "Univ. de Cape Town",      wins: 0, losses: 0 },
+  { rank: 4, university: "Univ. de Gambie",         university_en: "Univ. de Gambie",         wins: 0, losses: 0 },
+  { rank: 5, university: "Univ. Félix H-B",         university_en: "Univ. Félix H-B",         wins: 0, losses: 0 },
+  { rank: 6, university: "Univ. Thomas Sankara",    university_en: "Univ. Thomas Sankara",    wins: 0, losses: 0 },
 ];
 
 export default function HomeContent() {
@@ -42,21 +35,21 @@ export default function HomeContent() {
         ? "AUFL 2027: 6 universities, 5 countries, one champion"
         : "AUFL 2027 : 6 universités, 5 pays, une seule championne",
       date: "15 Jan 2027",
-      imageSrc: "/logo-aul.jpg",
+      imageSrc: "/photo-aufl-2027.jpg",
       imageAlt: "AUFL 2027",
       href: "/actualites/aufl-2027-presentation",
       tag: "AUFL",
     },
     {
-      id: "ucad-favori-aufl",
+      id: "aul-ifl-partenariat",
       title: lang === "en"
-        ? "Univ. Cheikh Anta Diop, top favourite of AUFL 2027"
-        : "L'Univ. Cheikh Anta Diop, grande favorite de l'AUFL 2027",
-      date: "18 Mar 2027",
-      imageSrc: "/logo-aul.jpg",
-      imageAlt: lang === "en" ? "UCAD AUFL 2027" : "UCAD AUFL 2027",
-      href: "/actualites/ucad-favori-aufl",
-      tag: "Universités",
+        ? "AUL × IFL: how Senegalese university football is organising to conquer Africa"
+        : "AUL × IFL : quand le football universitaire sénégalais s'organise pour conquérir l'Afrique",
+      date: "1 Jan 2026",
+      imageSrc: "/photo-football-league.jpg",
+      imageAlt: "AUL × IFL",
+      href: "/actualites/aul-ifl-partenariat",
+      tag: "AUFL",
     },
     {
       id: "dakar-ville-hote",
@@ -64,7 +57,7 @@ export default function HomeContent() {
         ? "Dakar, host city of AUFL 2027 — Stade L.S. Senghor at the heart of history"
         : "Dakar, ville hôte de l'AUFL 2027 — le Stade L.S. Senghor au cœur de l'histoire",
       date: "20 Jan 2027",
-      imageSrc: "/logo-aul.jpg",
+      imageSrc: "/photo-dakar.jpg",
       imageAlt: "Dakar AUFL 2027",
       href: "/actualites/dakar-ville-hote",
       tag: "AUFL",

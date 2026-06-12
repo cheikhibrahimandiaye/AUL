@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
+import { Big_Shoulders, Instrument_Sans } from "next/font/google";
 import Providers from "@/components/Providers";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const display = Big_Shoulders({
+  weight: "700",
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const body = Instrument_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -25,7 +25,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${bebasNeue.variable} ${dmSans.variable}`}>
+    <html lang="fr" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Providers>{children}</Providers>
       </body>

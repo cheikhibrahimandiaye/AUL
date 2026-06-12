@@ -3,21 +3,21 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 const standings = [
-  { rank: 1, university: "Univ. Cheikh Anta Diop", country: "Sénégal", flag: "🇸🇳", played: 5, wins: 5, losses: 0, pf: 12, pa: 2, diff: +10, streak: "V5", conference: "Groupe A" },
-  { rank: 2, university: "Univ. de Thiès", country: "Sénégal", flag: "🇸🇳", played: 5, wins: 4, losses: 1, pf: 10, pa: 4, diff: +6, streak: "V2", conference: "Groupe A" },
-  { rank: 3, university: "Univ. de Cape Town", country: "Afrique du Sud", flag: "🇿🇦", played: 5, wins: 2, losses: 3, pf: 6, pa: 8, diff: -2, streak: "D2", conference: "Groupe B" },
-  { rank: 4, university: "Univ. de Gambie", country: "Gambie", flag: "🇬🇲", played: 5, wins: 1, losses: 4, pf: 4, pa: 10, diff: -6, streak: "D3", conference: "Groupe A" },
-  { rank: 5, university: "Univ. Félix H-B", country: "Côte d'Ivoire", flag: "🇨🇮", played: 5, wins: 1, losses: 4, pf: 3, pa: 9, diff: -6, streak: "D1", conference: "Groupe B" },
-  { rank: 6, university: "Univ. Thomas Sankara", country: "Burkina Faso", flag: "🇧🇫", played: 5, wins: 0, losses: 5, pf: 1, pa: 13, diff: -12, streak: "D5", conference: "Groupe A" },
+  { rank: 1, university: "Univ. Cheikh Anta Diop", country: "Sénégal", flag: "🇸🇳", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe A" },
+  { rank: 2, university: "Univ. de Thiès", country: "Sénégal", flag: "🇸🇳", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe A" },
+  { rank: 3, university: "Univ. de Cape Town", country: "Afrique du Sud", flag: "🇿🇦", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe B" },
+  { rank: 4, university: "Univ. de Gambie", country: "Gambie", flag: "🇬🇲", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe A" },
+  { rank: 5, university: "Univ. Félix H-B", country: "Côte d'Ivoire", flag: "🇨🇮", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe B" },
+  { rank: 6, university: "Univ. Thomas Sankara", country: "Burkina Faso", flag: "🇧🇫", played: 0, wins: 0, losses: 0, pf: 0, pa: 0, diff: 0, streak: "—", conference: "Groupe A" },
 ];
 
 const rankColors: Record<number, string> = { 1: "#c5a059", 2: "#9ca3af", 3: "#b87333" };
 
 const statLeaders = [
-  { stat: "Buts marqués", leader: "Univ. Cheikh Anta Diop", value: "12" },
-  { stat: "Meilleure défense", leader: "Univ. Cheikh Anta Diop", value: "2 enc." },
-  { stat: "Meilleur différentiel", leader: "Univ. Cheikh Anta Diop", value: "+10" },
-  { stat: "Invaincu", leader: "Univ. Cheikh Anta Diop", value: "5/5" },
+  { stat: "Buts marqués", leader: "À venir", value: "—" },
+  { stat: "Meilleure défense", leader: "À venir", value: "—" },
+  { stat: "Meilleur différentiel", leader: "À venir", value: "—" },
+  { stat: "Invaincu", leader: "À venir", value: "—" },
 ];
 
 export default function ClassementPage() {

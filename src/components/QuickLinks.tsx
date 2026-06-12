@@ -37,18 +37,18 @@ export default function QuickLinks() {
 
   const links = lang === "en"
     ? [
-        { href: "/actualites",                       Icon: IconPlay,  label: "Watch Highlights and Replays of AUFL Games",                   highlight: false },
-        { href: "/actualites/playoffs-2026-singularite", Icon: IconStar,  label: "Teams leading the statistical rankings ahead of the AUFL Playoffs", highlight: true  },
-        { href: "/actualites/histoire-finales",       Icon: IconClock, label: "A look at the history of AUFL finals",                        highlight: false },
-        { href: "/actualites/brackets-playoffs",      Icon: IconGrid,  label: "Standings and brackets: everything about the 2026 Playoffs",  highlight: false },
-        { href: "/actualites/playoffs-2026-singularite", Icon: IconUsers, label: "Understanding the 2026 AUFL Playoffs Rankings and Brackets",  highlight: false },
+        { href: "/#videos",                                   Icon: IconPlay,  label: "Watch AUL videos and highlights",                          highlight: false },
+        { href: "/actualites/aufl-2027-presentation",         Icon: IconStar,  label: "AUFL 2027: 6 universities, 5 countries, one champion",     highlight: true  },
+        { href: "/actualites/ahmadou-wathie-fondateur-aul",   Icon: IconUsers, label: "The vision of founder Ahmadou Wathie",                     highlight: false },
+        { href: "/classement",                                Icon: IconGrid,  label: "Standings: everything about the 2027 season",              highlight: false },
+        { href: "/calendrier",                                Icon: IconClock, label: "The inaugural 2027 season schedule",                       highlight: false },
       ]
     : [
-        { href: "/actualites",                       Icon: IconPlay,  label: "Regarder les Highlights et Replays des matchs AUFL",          highlight: false },
-        { href: "/actualites/playoffs-2026-singularite", Icon: IconStar,  label: "Les équipes en tête des classements statistiques avant les Playoffs AUFL", highlight: true  },
-        { href: "/actualites/histoire-finales",       Icon: IconClock, label: "Un regard sur l'histoire des finales de l'AUFL",              highlight: false },
-        { href: "/actualites/brackets-playoffs",      Icon: IconGrid,  label: "Classements et brackets : tout savoir sur les Playoffs 2026", highlight: false },
-        { href: "/actualites/playoffs-2026-singularite", Icon: IconUsers, label: "Comprendre les Playoffs 2026 et les brackets AUFL",          highlight: false },
+        { href: "/#videos",                                   Icon: IconPlay,  label: "Regarder les vidéos et highlights de l'AUL",               highlight: false },
+        { href: "/actualites/aufl-2027-presentation",         Icon: IconStar,  label: "AUFL 2027 : 6 universités, 5 pays, une seule championne",  highlight: true  },
+        { href: "/actualites/ahmadou-wathie-fondateur-aul",   Icon: IconUsers, label: "La vision du fondateur Ahmadou Wathie",                    highlight: false },
+        { href: "/classement",                                Icon: IconGrid,  label: "Classement : tout savoir sur la saison 2027",              highlight: false },
+        { href: "/calendrier",                                Icon: IconClock, label: "Le calendrier de la saison inaugurale 2027",               highlight: false },
       ];
 
   return (

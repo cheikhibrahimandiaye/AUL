@@ -32,7 +32,7 @@ export default function CTABanner() {
         </div>
 
         <div ref={btnsRef} className="reveal reveal-right flex flex-col gap-4 shrink-0">
-          <a href="/universites" className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.14em]" style={{ backgroundColor: "#c5a059", color: "#0c0c0a" }}>
+          <a href="/contact?sujet=universite#contact-form" className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[13px] font-bold uppercase tracking-[0.14em]" style={{ backgroundColor: "#c5a059", color: "#0c0c0a" }}>
             {t("cta_apply")}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />

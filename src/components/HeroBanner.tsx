@@ -49,7 +49,7 @@ export default function HeroBanner({
     const handleScroll = () => {
       if (!imgRef.current) return;
       const y = window.scrollY;
-      imgRef.current.style.transform = `translateY(${y * 0.45}px) scale(1.05)`;
+      imgRef.current.style.transform = `translateY(${y * 0.45}px)`;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -62,8 +62,8 @@ export default function HeroBanner({
         ref={imgRef}
         src={imageSrc}
         alt={imageAlt}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.92, objectPosition: "55% center", willChange: "transform" }}
+        className="absolute inset-x-0 bottom-0 w-full object-cover"
+        style={{ opacity: 0.92, height: "130%", objectPosition: "55% center", willChange: "transform" }}
       />
       <div
         className="absolute inset-0"
@@ -108,7 +108,7 @@ export default function HeroBanner({
       {/* Edition marker */}
       <div className="absolute top-8 right-10 z-10 text-right animate-fade-in delay-400">
         <div className="leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontSize: "4.5rem", color: accentColor, opacity: 0.12 }} aria-hidden="true">
-          2026
+          2027
         </div>
         <div className="text-[10px] uppercase tracking-[0.2em]" style={{ color: "rgba(255,255,255,0.3)" }}>
           {t("hero_season")}

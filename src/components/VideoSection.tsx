@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const VIDEOS_URL = "https://www.instagram.com/aul.africa/";
 
 interface Video {
   id: string;
@@ -40,7 +41,7 @@ export default function VideoSection({ videos }: VideoSectionProps) {
   const gridRef   = useScrollReveal({ rootMargin: "0px 0px -40px 0px" });
 
   return (
-    <section className="px-5 md:px-12 py-10 md:py-16" style={{ backgroundColor: "#0c0c0a" }}>
+    <section id="videos" className="px-5 md:px-12 py-10 md:py-16 scroll-mt-20" style={{ backgroundColor: "#0c0c0a" }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div ref={headerRef} className="reveal flex justify-between items-end mb-10 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
@@ -50,18 +51,18 @@ export default function VideoSection({ videos }: VideoSectionProps) {
               {t("videos_title")}
             </h2>
           </div>
-          <Link href="/actualites" className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.4)" }}>
+          <a href={VIDEOS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.4)" }}>
             {t("videos_more")}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />
             </svg>
-          </Link>
+          </a>
         </div>
 
         <div ref={gridRef} className="reveal reveal-zoom grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Featured — 2 cols */}
           {featured && (
-            <Link href={`/actualites/${featured.id}`} className="md:col-span-2 group relative block overflow-hidden">
+            <a href={VIDEOS_URL} target="_blank" rel="noopener noreferrer" className="md:col-span-2 group relative block overflow-hidden">
               <div className="relative" style={{ aspectRatio: "16/9" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={featured.thumb} alt={lang === "en" ? featured.title_en : featured.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
@@ -79,13 +80,13 @@ export default function VideoSection({ videos }: VideoSectionProps) {
                   </h3>
                 </div>
               </div>
-            </Link>
+            </a>
           )}
 
           {/* Secondary — stacked */}
           <div className="flex flex-col gap-4">
             {secondary.map((video) => (
-              <Link key={video.id} href={`/actualites/${video.id}`} className="group relative block overflow-hidden flex-1" style={{ minHeight: "140px" }}>
+              <a key={video.id} href={VIDEOS_URL} target="_blank" rel="noopener noreferrer" className="group relative block overflow-hidden flex-1" style={{ minHeight: "140px" }}>
                 <div className="relative h-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={video.thumb} alt={lang === "en" ? video.title_en : video.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]" style={{ position: "absolute", inset: 0 }} />
@@ -98,18 +99,18 @@ export default function VideoSection({ videos }: VideoSectionProps) {
                     </h4>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
 
         <div className="mt-6 text-center pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-          <Link href="/actualites" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.4)" }}>
+          <a href={VIDEOS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest transition-colors" style={{ color: "rgba(255,255,255,0.4)" }}>
             {t("videos_more")}
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

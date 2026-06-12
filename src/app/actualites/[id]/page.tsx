@@ -16,15 +16,14 @@ interface Article {
   date: string;
   readTime: string;
   imageSrc: string;
+  imagePosition?: string;
   imageCaption?: { fr: string; en: string };
   author?: { fr: string; en: string };
   body: Block[];
 }
 
 const IMG = {
-  a1: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=1200&q=80",
   a4: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&q=80",
-  a5: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1200&q=80",
 };
 
 const ARTICLES: Article[] = [
@@ -90,7 +89,7 @@ const ARTICLES: Article[] = [
     },
     date: "15 Jan 2027",
     readTime: "4 min",
-    imageSrc: IMG.a1,
+    imageSrc: "/photo-aufl-2027.jpg",
     imageCaption: { fr: "Les équipes de la première saison AUFL se préparent à Dakar", en: "Teams of the first AUFL season prepare in Dakar" },
     author: { fr: "Rédaction AUFL", en: "AUFL Editorial" },
     body: [
@@ -119,7 +118,7 @@ const ARTICLES: Article[] = [
     },
     date: "1 Jun 2026",
     readTime: "3 min",
-    imageSrc: "/logo-aubl.jpg",
+    imageSrc: "/photo-aubl-article.jpg",
     imageCaption: { fr: "African University Basketball League (AUBL) — Saison inaugurale 2027", en: "African University Basketball League (AUBL) — Inaugural Season 2027" },
     author: { fr: "Rédaction AUBL", en: "AUBL Editorial" },
     body: [
@@ -149,7 +148,7 @@ const ARTICLES: Article[] = [
     },
     date: "1 Jun 2026",
     readTime: "3 min",
-    imageSrc: "/logo-awbl.jpg",
+    imageSrc: "/photo-awbl-article.jpg",
     imageCaption: { fr: "African University Women's Basketball League (AWBL) — Saison inaugurale 2027", en: "African University Women's Basketball League (AWBL) — Inaugural Season 2027" },
     author: { fr: "Rédaction AWBL", en: "AWBL Editorial" },
     body: [
@@ -247,7 +246,8 @@ const ARTICLES: Article[] = [
     },
     date: "20 Jan 2027",
     readTime: "4 min",
-    imageSrc: IMG.a5,
+    imageSrc: "/photo-dakar.jpg",
+    imagePosition: "center 75%",
     imageCaption: { fr: "Le Stade Léopold Sédar Senghor de Dakar, enceinte principale de l'AUFL 2027", en: "The Léopold Sédar Senghor Stadium in Dakar, main venue for AUFL 2027" },
     author: { fr: "Rédaction AUL", en: "AUL Editorial" },
     body: [
@@ -344,7 +344,7 @@ export default function ArticlePage() {
         {/* Hero */}
         <div className="relative w-full overflow-hidden" style={{ maxHeight: "520px" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={article.imageSrc} alt={article.title[lang]} className="w-full object-cover" style={{ maxHeight: "520px", objectPosition: "center" }} />
+          <img src={article.imageSrc} alt={article.title[lang]} className="w-full object-cover" style={{ maxHeight: "520px", objectPosition: article.imagePosition ?? "center" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,57,39,0.7) 0%, transparent 60%)" }} />
         </div>
 

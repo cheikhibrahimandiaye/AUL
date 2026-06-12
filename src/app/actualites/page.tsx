@@ -42,7 +42,7 @@ const articles = [
     },
     date: "15 Jan 2027",
     readTime: { fr: "4 min", en: "4 min" },
-    imageSrc: "/logo-aul.jpg",
+    imageSrc: "/photo-aufl-2027.jpg",
     featured: false,
   },
   {
@@ -58,7 +58,7 @@ const articles = [
     },
     date: "1 Jun 2026",
     readTime: { fr: "3 min", en: "3 min" },
-    imageSrc: "/logo-aubl.jpg",
+    imageSrc: "/photo-aubl-article.jpg",
     featured: false,
   },
   {
@@ -106,7 +106,7 @@ const articles = [
     },
     date: "1 Jun 2026",
     readTime: { fr: "3 min", en: "3 min" },
-    imageSrc: "/logo-awbl.jpg",
+    imageSrc: "/photo-awbl-article.jpg",
     featured: false,
   },
   {
@@ -122,7 +122,7 @@ const articles = [
     },
     date: "20 Jan 2027",
     readTime: { fr: "4 min", en: "4 min" },
-    imageSrc: "/logo-aul.jpg",
+    imageSrc: "/photo-dakar.jpg",
     featured: false,
   },
 ];
@@ -138,8 +138,8 @@ export default function ActualitesPage() {
   const label = lang === "fr" ? "Médias & Actualités" : "Media & News";
   const title = lang === "fr" ? "Actualités" : "News";
   const subtitle = lang === "fr"
-    ? "Analyses, résultats, portraits d'équipes et coulisses de la première saison AUL / AUFL."
-    : "Analysis, results, team portraits and behind-the-scenes of the first AUL / AUFL season.";
+    ? "Annonces officielles, partenariats et coulisses de la préparation de la saison inaugurale 2027 — AUFL, AUBL et AWBL."
+    : "Official announcements, partnerships and behind-the-scenes of the inaugural 2027 season — AUFL, AUBL and AWBL.";
   const readLabel = lang === "fr" ? "de lecture" : "read";
   const featuredLabel = lang === "fr" ? "À la une" : "Featured";
 

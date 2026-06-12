@@ -18,9 +18,7 @@ interface ScheduleMatch {
 }
 
 const upcomingMatches: ScheduleMatch[] = [
-  { id: "1", date: "20", day: "Mar", homeTeam: "Univ. Cheikh Anta Diop", awayTeam: "Univ. de Cape Town", time: "15:00", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 1", competition: "AUFL" },
-  { id: "2", date: "20", day: "Mar", homeTeam: "Univ. de Thiès",         awayTeam: "Univ. de Cape Town", time: "18:00", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 2", competition: "AUFL" },
-  { id: "3", date: "25", day: "Mar", homeTeam: "TBD",                    awayTeam: "TBD",                time: "18:00", venue: "Stade L.S. Senghor, Dakar", round: "Finale AUFL 2027", competition: "AUFL", isHighlight: true },
+  { id: "1", date: "—", day: "2027", homeTeam: "TBD", awayTeam: "TBD", time: "TBD", venue: "Stade L.S. Senghor, Dakar", round: "Saison inaugurale 2027", competition: "AUFL", isHighlight: true },
 ];
 
 export default function ScheduleSection() {

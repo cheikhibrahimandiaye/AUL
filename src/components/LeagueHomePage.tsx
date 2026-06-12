@@ -46,7 +46,7 @@ function LeagueScheduleSection({ league }: { league: League }) {
   return (
     <section className="px-5 md:px-12 py-10 md:py-16 relative overflow-hidden" style={{ backgroundColor: "#0c0c0a" }}>
       <div aria-hidden="true" className="pointer-events-none absolute right-12 top-1/2 -translate-y-1/2 select-none leading-none text-white" style={{ fontFamily: "var(--font-display)", fontSize: "18rem", opacity: 0.03, letterSpacing: "-0.04em" }}>
-        2026
+        2027
       </div>
       <div className="relative z-10 max-w-5xl">
         <div ref={headerRef} className="reveal flex justify-between items-end mb-10 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
@@ -127,6 +127,9 @@ function LeagueNewsStandingsSection({ league }: { league: League }) {
   const featured = league.news[0];
   const secondary = league.news.slice(1);
 
+  // ids that match a real article slug link to its page; placeholder ids fall back to the list
+  const newsHref = (id: string) => (id.startsWith("n") && id.length <= 3 ? "/actualites" : `/actualites/${id}`);
+
   const newsArticles = {
     featured: {
       id: featured.id,
@@ -134,7 +137,7 @@ function LeagueNewsStandingsSection({ league }: { league: League }) {
       date: featured.date,
       imageSrc: featured.image,
       imageAlt: featured.title,
-      href: "/actualites",
+      href: newsHref(featured.id),
       tag: featured.category,
       excerpt: lang === "en" ? featured.excerpt_en : featured.excerpt,
     },
@@ -144,7 +147,7 @@ function LeagueNewsStandingsSection({ league }: { league: League }) {
       date: a.date,
       imageSrc: a.image,
       imageAlt: a.title,
-      href: "/actualites",
+      href: newsHref(a.id),
       tag: a.category,
       excerpt: lang === "en" ? a.excerpt_en : a.excerpt,
     })),
@@ -172,7 +175,7 @@ function LeagueNewsStandingsSection({ league }: { league: League }) {
             </div>
             <div className="py-10 text-center">
               <p className="text-sm" style={{ color: "#6b6b60" }}>Le classement sera disponible à l&apos;ouverture de la saison.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 mt-6 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] transition-all" style={{ border: `1px solid ${accent}`, color: accent }}>
+              <Link href="/contact?sujet=universite#contact-form" className="inline-flex items-center gap-2 mt-6 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] transition-all" style={{ border: `1px solid ${accent}`, color: accent }}>
                 Inscrire mon université
               </Link>
             </div>

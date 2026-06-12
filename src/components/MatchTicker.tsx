@@ -14,11 +14,11 @@ interface MatchResult {
 }
 
 const matches: MatchResult[] = [
-  { id: "1", homeTeam: "UCAD Dakar",   awayTeam: "Univ. de Thiès",    homeScore: 1, awayScore: 0, status: "final",    competition: "AUFL" },
-  { id: "2", homeTeam: "Cape Town",    awayTeam: "Univ. Félix H-B",   homeScore: 2, awayScore: 1, status: "final",    competition: "AUFL" },
-  { id: "3", homeTeam: "UCAD Dakar",   awayTeam: "Univ. de Cape Town", homeScore: 0, awayScore: 0, status: "upcoming", time: "15:00", competition: "AUFL" },
-  { id: "4", homeTeam: "Univ. Thiès",  awayTeam: "Univ. de Cape Town", homeScore: 0, awayScore: 0, status: "upcoming", time: "18:00", competition: "AUFL" },
-  { id: "5", homeTeam: "TBD",          awayTeam: "TBD",                homeScore: 0, awayScore: 0, status: "upcoming", time: "18:00", competition: "AUFL" },
+  { id: "1", homeTeam: "TBD", awayTeam: "TBD", homeScore: 0, awayScore: 0, status: "upcoming", time: "TBD", competition: "AUFL" },
+  { id: "2", homeTeam: "TBD", awayTeam: "TBD", homeScore: 0, awayScore: 0, status: "upcoming", time: "TBD", competition: "AUFL" },
+  { id: "3", homeTeam: "TBD", awayTeam: "TBD", homeScore: 0, awayScore: 0, status: "upcoming", time: "TBD", competition: "AUFL" },
+  { id: "4", homeTeam: "TBD", awayTeam: "TBD", homeScore: 0, awayScore: 0, status: "upcoming", time: "TBD", competition: "AUFL" },
+  { id: "5", homeTeam: "TBD", awayTeam: "TBD", homeScore: 0, awayScore: 0, status: "upcoming", time: "TBD", competition: "AUFL" },
 ];
 
 function MatchItem({ match }: { match: MatchResult }) {

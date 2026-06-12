@@ -64,12 +64,6 @@ export default function Navbar() {
             className="rounded-full"
             priority
           />
-          <span
-            className="text-[10px] tracking-[0.14em] uppercase leading-none hidden sm:block"
-            style={{ color: "rgba(197,160,89,0.7)" }}
-          >
-            {leagueLabel}
-          </span>
         </Link>
 
         {/* League dropdown trigger */}

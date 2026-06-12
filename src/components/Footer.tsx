@@ -31,9 +31,9 @@ export default function Footer() {
     ],
     [t("footer_media")]: [
       { label: t("nav_news"), href: "/actualites" },
-      { label: "Vidéos", href: "/actualites" },
-      { label: "Photos", href: "/actualites" },
-      { label: "Presse", href: "/contact" },
+      { label: "Vidéos", href: "/#videos" },
+      { label: "Photos", href: "/#videos" },
+      { label: "Presse", href: "/contact#contact-form" },
     ],
   };
 
@@ -60,11 +60,28 @@ export default function Footer() {
             <p className="text-[11px] font-bold uppercase tracking-[0.12em] mb-5" style={{ color: GOLD }}>African University League</p>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.34)" }}>{t("footer_tagline")}</p>
             <div className="flex gap-2 mt-4">
-              {[{ label: "X", href: "#" }, { label: "IG", href: "#" }, { label: "YT", href: "#" }, { label: "IN", href: "#" }].map((s) => (
-                <a key={s.label} href={s.href} className="footer-social w-8 h-8 flex items-center justify-center text-[10px] font-bold transition-colors">
-                  {s.label}
-                </a>
-              ))}
+              {[{ label: "X", href: "" }, { label: "IG", href: "https://www.instagram.com/aul.africa/" }, { label: "YT", href: "" }, { label: "IN", href: "" }].map((s) =>
+                s.href ? (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-social w-8 h-8 flex items-center justify-center text-[10px] font-bold transition-colors"
+                  >
+                    {s.label}
+                  </a>
+                ) : (
+                  <span
+                    key={s.label}
+                    title="Bientôt disponible"
+                    className="footer-social w-8 h-8 flex items-center justify-center text-[10px] font-bold cursor-default"
+                    style={{ opacity: 0.4 }}
+                  >
+                    {s.label}
+                  </span>
+                )
+              )}
             </div>
           </div>
 
@@ -116,8 +133,12 @@ export default function Footer() {
             <span className="text-[11px] ml-2" style={{ color: "rgba(255,255,255,0.14)" }}>{t("footer_founded")}</span>
           </div>
           <div className="flex gap-5">
-            {[t("footer_legal"), t("footer_privacy"), t("footer_faq")].map((l) => (
-              <Link key={l} href="#" className="text-[11px] transition-colors" style={{ color: "rgba(255,255,255,0.2)" }}>{l}</Link>
+            {[
+              { label: t("footer_legal"), href: "/a-propos" },
+              { label: t("footer_privacy"), href: "/a-propos" },
+              { label: t("footer_faq"), href: "/contact" },
+            ].map((l) => (
+              <Link key={l.label} href={l.href} className="text-[11px] transition-colors" style={{ color: "rgba(255,255,255,0.2)" }}>{l.label}</Link>
             ))}
           </div>
         </div>

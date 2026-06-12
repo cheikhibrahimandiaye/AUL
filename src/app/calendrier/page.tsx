@@ -14,33 +14,11 @@ const FILTERS = [
 
 const phases = [
   {
-    name: "Phase de groupes — AUFL 2027",
+    name: "AUFL 2027 — Saison à venir",
     color: "#c5a059",
     competition: "AUFL",
     matches: [
-      { id: "gs01", date: "10 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Gambie",      venue: "Stade L.S. Senghor, Dakar", round: "GS-01 — Groupe A", competition: "AUFL", status: "played", score: "3 – 0" },
-      { id: "gs02", date: "10 Mar 2027", time: "18:00", home: "Univ. de Cape Town",     away: "Univ. Félix H-B",      venue: "Stade L.S. Senghor, Dakar", round: "GS-02 — Groupe B", competition: "AUFL", status: "played", score: "2 – 1" },
-      { id: "gs03", date: "12 Mar 2027", time: "15:00", home: "Univ. de Thiès",         away: "Univ. Thomas Sankara", venue: "Stade L.S. Senghor, Dakar", round: "GS-03 — Groupe A", competition: "AUFL", status: "played", score: "2 – 0" },
-      { id: "gs04", date: "12 Mar 2027", time: "18:00", home: "Univ. de Gambie",        away: "Univ. Thomas Sankara", venue: "Stade L.S. Senghor, Dakar", round: "GS-04 — Groupe A", competition: "AUFL", status: "played", score: "1 – 1" },
-      { id: "gs05", date: "14 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Thiès",       venue: "Stade L.S. Senghor, Dakar", round: "GS-05 — Groupe A", competition: "AUFL", status: "played", score: "1 – 0" },
-      { id: "gs06", date: "14 Mar 2027", time: "18:00", home: "Univ. de Cape Town",     away: "Univ. Félix H-B",      venue: "Stade L.S. Senghor, Dakar", round: "GS-06 — Groupe B", competition: "AUFL", status: "played", score: "1 – 0" },
-    ],
-  },
-  {
-    name: "Demi-finales — AUFL 2027",
-    color: "#c5a059",
-    competition: "AUFL",
-    matches: [
-      { id: "df01", date: "20 Mar 2027", time: "15:00", home: "Univ. Cheikh Anta Diop", away: "Univ. de Cape Town", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 1", competition: "AUFL", status: "upcoming" },
-      { id: "df02", date: "20 Mar 2027", time: "18:00", home: "Univ. de Thiès",         away: "Univ. de Cape Town", venue: "Stade L.S. Senghor, Dakar", round: "Demi-finale 2", competition: "AUFL", status: "upcoming" },
-    ],
-  },
-  {
-    name: "Finale — AUFL 2027",
-    color: "#c5a059",
-    competition: "AUFL",
-    matches: [
-      { id: "f1", date: "25 Mar 2027", time: "18:00", home: "TBD", away: "TBD", venue: "Stade L.S. Senghor, Dakar", round: "Finale AUFL 2027", competition: "AUFL", status: "final" },
+      { id: "aufl-1", date: "À définir", time: "—", home: "TBD", away: "TBD", venue: "Stade L.S. Senghor, Dakar", round: "Saison inaugurale 2027", competition: "AUFL", status: "upcoming" },
     ],
   },
   {
