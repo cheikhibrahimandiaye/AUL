@@ -52,36 +52,49 @@ export default function ScheduleSection() {
           {upcomingMatches.map((match, idx) => (
             <div
               key={match.id}
-              className="flex flex-wrap md:flex-nowrap items-center gap-4 md:gap-8 py-5 group cursor-pointer transition-all duration-200 -mx-4 px-4"
+              className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-5 group cursor-pointer transition-all duration-200 -mx-4 px-4"
               style={{
                 borderBottom: idx < upcomingMatches.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
                 backgroundColor: match.isHighlight ? "rgba(197,160,89,0.06)" : undefined,
               }}
             >
-              {/* Date */}
-              <div className="w-14 shrink-0 text-center">
-                <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "2.8rem", color: match.isHighlight ? "#c5a059" : "rgba(255,255,255,0.9)" }}>
-                  {match.date}
+              {/* Mobile top row: date + badges + time / desktop: separate columns (md:contents) */}
+              <div className="flex items-center justify-between gap-4 md:contents">
+                {/* Date */}
+                <div className="w-14 shrink-0 text-center">
+                  <div className="leading-none text-[2.2rem] md:text-[2.8rem]" style={{ fontFamily: "var(--font-display)", color: match.isHighlight ? "#c5a059" : "rgba(255,255,255,0.9)" }}>
+                    {match.date}
+                  </div>
+                  <div className="text-[9px] font-bold uppercase tracking-[0.16em] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
+                    {match.day}
+                  </div>
                 </div>
-                <div className="text-[9px] font-bold uppercase tracking-[0.16em] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {match.day}
-                </div>
-              </div>
 
-              {/* Badges */}
-              <div className="shrink-0 flex flex-col gap-1.5 w-32">
-                <span
-                  className="inline-block text-[9px] font-black uppercase tracking-[0.14em] px-3 py-1.5 w-max"
-                  style={match.isHighlight
-                    ? { backgroundColor: "#c5a059", color: "#0c0c0a" }
-                    : { border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.4)" }
-                  }
-                >
-                  {match.round}
-                </span>
-                <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: "1px solid rgba(197,160,89,0.3)", color: "#c5a059" }}>
-                  {match.competition}
-                </span>
+                {/* Badges */}
+                <div className="shrink-0 flex flex-col items-center md:items-start gap-1.5 md:w-32">
+                  <span
+                    className="inline-block text-[9px] font-black uppercase tracking-[0.14em] px-3 py-1.5 w-max"
+                    style={match.isHighlight
+                      ? { backgroundColor: "#c5a059", color: "#0c0c0a" }
+                      : { border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.4)" }
+                    }
+                  >
+                    {match.round}
+                  </span>
+                  <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: "1px solid rgba(197,160,89,0.3)", color: "#c5a059" }}>
+                    {match.competition}
+                  </span>
+                </div>
+
+                {/* Time + Venue (desktop order: last column) */}
+                <div className="shrink-0 text-right md:order-last">
+                  <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "rgba(255,255,255,0.9)" }}>
+                    {match.time}
+                  </div>
+                  <div className="hidden md:block text-[10px] font-semibold uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
+                    {match.venue}
+                  </div>
+                </div>
               </div>
 
               {/* Matchup */}
@@ -95,14 +108,9 @@ export default function ScheduleSection() {
                 </span>
               </div>
 
-              {/* Time + Venue */}
-              <div className="shrink-0 text-right">
-                <div className="leading-none" style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", color: "rgba(255,255,255,0.9)" }}>
-                  {match.time}
-                </div>
-                <div className="text-[10px] font-semibold uppercase tracking-widest mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  {match.venue}
-                </div>
+              {/* Venue (mobile only, under the matchup) */}
+              <div className="md:hidden text-center text-[10px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.3)" }}>
+                {match.venue}
               </div>
             </div>
           ))}
