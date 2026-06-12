@@ -95,10 +95,10 @@ export default function HeroBanner({
         className="aurora-layer pointer-events-none absolute inset-0 mix-blend-screen"
         style={{
           background: `
-            radial-gradient(ellipse 50% 42% at 85% 12%, ${accentColor}3D 0%, transparent 70%),
-            radial-gradient(ellipse 38% 34% at 18% -8%, ${accentColor}1F 0%, transparent 70%)
+            radial-gradient(ellipse 55% 48% at 85% 10%, ${accentColor}B3 0%, transparent 68%),
+            radial-gradient(ellipse 40% 36% at 16% -10%, ${accentColor}59 0%, transparent 70%)
           `,
-          filter: "blur(48px)",
+          filter: "blur(40px)",
         }}
       />
       <div
@@ -106,10 +106,10 @@ export default function HeroBanner({
         className="aurora-layer-alt pointer-events-none absolute inset-0 mix-blend-screen"
         style={{
           background: `
-            radial-gradient(ellipse 42% 38% at 104% 62%, rgba(16,122,84,0.45) 0%, transparent 70%),
-            radial-gradient(ellipse 30% 26% at 60% 0%, rgba(16,122,84,0.22) 0%, transparent 70%)
+            radial-gradient(ellipse 46% 42% at 102% 60%, rgba(22,163,110,0.75) 0%, transparent 68%),
+            radial-gradient(ellipse 32% 28% at 58% -4%, rgba(22,163,110,0.4) 0%, transparent 70%)
           `,
-          filter: "blur(56px)",
+          filter: "blur(48px)",
         }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-1 z-20" style={{ backgroundColor: accentColor }} aria-hidden="true" />
