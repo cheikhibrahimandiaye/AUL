@@ -83,8 +83,8 @@ export default function VideoSection({ videos }: VideoSectionProps) {
             </a>
           )}
 
-          {/* Secondary — stacked */}
-          <div className="flex flex-col gap-4">
+          {/* Secondary — stacked (desktop only to keep mobile light) */}
+          <div className="hidden md:flex flex-col gap-4">
             {secondary.map((video) => (
               <a key={video.id} href={VIDEOS_URL} target="_blank" rel="noopener noreferrer" className="group relative block overflow-hidden flex-1" style={{ minHeight: "140px" }}>
                 <div className="relative h-full">

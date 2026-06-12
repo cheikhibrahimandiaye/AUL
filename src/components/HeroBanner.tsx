@@ -56,7 +56,7 @@ export default function HeroBanner({
   }, []);
 
   return (
-    <section className="relative flex h-[540px] md:h-[680px] overflow-hidden grain" style={{ backgroundColor: "#0c0c0a" }}>
+    <section className="relative flex h-[100svh] md:h-[680px] overflow-hidden grain" style={{ backgroundColor: "#0c0c0a" }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}

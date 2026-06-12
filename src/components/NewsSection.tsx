@@ -107,8 +107,11 @@ export default function NewsSection({ featured, secondary }: NewsSectionProps) {
       <div ref={gridRef} className="reveal reveal-zoom reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
         <FeaturedArticle article={featured} />
         <div className="flex flex-col gap-7 justify-start">
-          {secondary.map((article) => (
-            <SecondaryArticle key={article.id} article={article} />
+          {secondary.map((article, i) => (
+            // on mobile, keep the list short: only the first two secondary articles
+            <div key={article.id} className={i >= 2 ? "hidden md:block" : ""}>
+              <SecondaryArticle article={article} />
+            </div>
           ))}
         </div>
       </div>

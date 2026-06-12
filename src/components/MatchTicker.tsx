@@ -66,7 +66,7 @@ export default function MatchTicker() {
   const doubled = [...matches, ...matches];
 
   return (
-    <div className="overflow-hidden flex items-stretch h-11" style={{ backgroundColor: "#0c0c0a", borderBottom: "1px solid rgba(197,160,89,0.3)" }}>
+    <div className="hidden md:flex overflow-hidden items-stretch h-11" style={{ backgroundColor: "#0c0c0a", borderBottom: "1px solid rgba(197,160,89,0.3)" }}>
       <div className="shrink-0 flex items-center gap-2 px-5 z-10" style={{ backgroundColor: "#c5a059", color: "#0c0c0a" }}>
         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /></svg>
         <span className="text-[10px] font-black uppercase tracking-[0.18em] whitespace-nowrap">{t("ticker_label")}</span>
