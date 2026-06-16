@@ -108,9 +108,9 @@ export default function ContactPage() {
           <rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill={GOLD} />
         </svg>
       ),
-      label: { fr: "Instagram", en: "Instagram" },
-      value: "@aul.africa",
-      sub: { fr: "Suivez l'AUL sur Instagram", en: "Follow the AUL on Instagram" },
+      label: { fr: "Réseaux sociaux", en: "Social media" },
+      value: "@aul.africa · @Theaulofficial",
+      sub: { fr: "Instagram · YouTube · LinkedIn", en: "Instagram · YouTube · LinkedIn" },
       href: "https://www.instagram.com/aul.africa/",
     },
   ];

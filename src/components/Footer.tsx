@@ -31,8 +31,8 @@ export default function Footer() {
     ],
     [t("footer_media")]: [
       { label: t("nav_news"), href: "/actualites" },
-      { label: "Vidéos", href: "/#videos" },
-      { label: "Photos", href: "/#videos" },
+      { label: "Vidéos", href: "https://www.youtube.com/@Theaulofficial" },
+      { label: "Photos", href: "https://www.instagram.com/aul.africa/" },
       { label: "Presse", href: "/contact#contact-form" },
     ],
   };
@@ -60,28 +60,47 @@ export default function Footer() {
             <p className="text-[11px] font-bold uppercase tracking-[0.12em] mb-5" style={{ color: GOLD }}>African University League</p>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.34)" }}>{t("footer_tagline")}</p>
             <div className="flex gap-2 mt-4">
-              {[{ label: "X", href: "" }, { label: "IG", href: "https://www.instagram.com/aul.africa/" }, { label: "YT", href: "" }, { label: "IN", href: "" }].map((s) =>
-                s.href ? (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-social w-8 h-8 flex items-center justify-center text-[10px] font-bold transition-colors"
-                  >
-                    {s.label}
-                  </a>
-                ) : (
-                  <span
-                    key={s.label}
-                    title="Bientôt disponible"
-                    className="footer-social w-8 h-8 flex items-center justify-center text-[10px] font-bold cursor-default"
-                    style={{ opacity: 0.4 }}
-                  >
-                    {s.label}
-                  </span>
-                )
-              )}
+              {[
+                {
+                  label: "Instagram",
+                  href: "https://www.instagram.com/aul.africa/",
+                  icon: (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.18.4-.55.22-.94.47-1.35.88-.41.41-.66.8-.88 1.35-.16.41-.35 1.03-.4 2.18-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.4 2.18.22.55.47.94.88 1.35.41.41.8.66 1.35.88.41.16 1.03.35 2.18.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.18-.4.55-.22.94-.47 1.35-.88.41-.41.66-.8.88-1.35.16-.41.35-1.03.4-2.18.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.4-2.18-.22-.55-.47-.94-.88-1.35-.41-.41-.8-.66-1.35-.88-.41-.16-1.03-.35-2.18-.4-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 1 1 0 10.92 5.46 5.46 0 0 1 0-10.92zm0 9a3.54 3.54 0 1 0 0-7.08 3.54 3.54 0 0 0 0 7.08zm6.95-9.22a1.27 1.27 0 1 1-2.55 0 1.27 1.27 0 0 1 2.55 0z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "YouTube",
+                  href: "https://www.youtube.com/@Theaulofficial",
+                  icon: (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.27 3.6-6.27 3.6z" />
+                    </svg>
+                  ),
+                },
+                {
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/company/african-university-league-aul/",
+                  icon: (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z" />
+                    </svg>
+                  ),
+                },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  title={s.label}
+                  className="footer-social w-8 h-8 flex items-center justify-center transition-colors"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -93,9 +112,15 @@ export default function Footer() {
                 <ul className="flex flex-col gap-2.5">
                   {links.map(({ label, href }) => (
                     <li key={label}>
-                      <Link href={href} className="text-sm transition-colors duration-150" style={{ color: "rgba(255,255,255,0.37)" }}>
-                        {label}
-                      </Link>
+                      {href.startsWith("http") ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-sm transition-colors duration-150" style={{ color: "rgba(255,255,255,0.37)" }}>
+                          {label}
+                        </a>
+                      ) : (
+                        <Link href={href} className="text-sm transition-colors duration-150" style={{ color: "rgba(255,255,255,0.37)" }}>
+                          {label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

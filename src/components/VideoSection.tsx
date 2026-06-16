@@ -3,7 +3,7 @@
 import { useLang } from "@/lib/i18n";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const VIDEOS_URL = "https://www.instagram.com/aul.africa/";
+const VIDEOS_URL = "https://www.youtube.com/@Theaulofficial";
 
 interface Video {
   id: string;
