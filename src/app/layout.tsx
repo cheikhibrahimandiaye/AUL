@@ -19,6 +19,10 @@ const body = Instrument_Sans({
 export const metadata: Metadata = {
   title: "AUL — African University League",
   description: "La plateforme officielle du sport universitaire africain — football, basketball masculin et basketball féminin.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
