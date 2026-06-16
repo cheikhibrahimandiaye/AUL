@@ -41,10 +41,12 @@ export async function POST(request: Request) {
 
   const topicLabel = TOPICS[topic ?? ""] ?? "Autre demande";
 
+  // Expéditeur : adresse sur le domaine vérifié dans Resend ; repli sur l'adresse de test Resend
+  const from = process.env.RESEND_FROM ?? "AUL Site Web <onboarding@resend.dev>";
+
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    // Adresse par défaut de Resend — remplacer par contact@votre-domaine une fois le domaine vérifié
-    from: "AUL Site Web <onboarding@resend.dev>",
+    from,
     to,
     replyTo: email,
     subject: `[AUL Contact] ${topicLabel} — ${name}`,
