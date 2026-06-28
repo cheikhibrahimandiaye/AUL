@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
-import HeroBanner from "@/components/HeroBanner";
+import HomeHero from "@/components/HomeHero";
+import LeaguesShowcase from "@/components/LeaguesShowcase";
 import MatchTicker from "@/components/MatchTicker";
 import QuickLinks from "@/components/QuickLinks";
 import HomeContent from "@/components/HomeContent";
@@ -8,10 +9,6 @@ import ScheduleSection from "@/components/ScheduleSection";
 import CTABanner from "@/components/CTABanner";
 import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
-
-const IMG = {
-  hero: "/hero-aufl.jpg",
-};
 
 const videos = [
   {
@@ -44,11 +41,8 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <HeroBanner
-        imageSrc={IMG.hero}
-        imageSrcMobile="/hero-aufl-mobile.jpg"
-        imageAlt="Joueurs de football universitaire africain célébrant un but"
-      />
+      <HomeHero />
+      <LeaguesShowcase />
       <MatchTicker />
       <QuickLinks />
       <HomeContent />

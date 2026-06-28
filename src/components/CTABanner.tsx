@@ -12,7 +12,7 @@ export default function CTABanner() {
     <section className="relative overflow-hidden" style={{ backgroundColor: "#043927" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 80% 50%, rgba(197,160,89,0.08) 0%, transparent 70%)" }} aria-hidden="true" />
       <div aria-hidden="true" className="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none leading-none text-white hidden md:block" style={{ fontFamily: "var(--font-display)", fontSize: "22rem", opacity: 0.04, letterSpacing: "-0.06em" }}>
-        AUFL
+        AUBL
       </div>
 
       <div className="relative z-10 px-5 md:px-12 py-12 md:py-20 flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">

@@ -141,8 +141,8 @@ export default function HeroBanner({
         </div>
 
         <h1
-          className="animate-fade-up delay-100 uppercase leading-none mb-5 md:mb-6 text-white"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.6rem, 7vw, 6.5rem)", letterSpacing: "0.01em", textShadow: "0 2px 40px rgba(0,0,0,0.4)" }}
+          className="animate-fade-up delay-100 uppercase leading-[0.95] mb-5 md:mb-6 text-white"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.4rem, 5.5vw, 5rem)", letterSpacing: "0.01em", textShadow: "0 2px 40px rgba(0,0,0,0.4)" }}
         >
           {resolvedTitle}
         </h1>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const ACCENT = "#3b82f6"; // AUBL blue
+
 interface ScheduleMatch {
   id: string;
   date: string;
@@ -13,12 +15,12 @@ interface ScheduleMatch {
   time: string;
   venue: string;
   round: string;
-  competition: "AUL" | "AUFL";
+  competition: "AUL" | "AUFL" | "AUBL";
   isHighlight?: boolean;
 }
 
 const upcomingMatches: ScheduleMatch[] = [
-  { id: "1", date: "—", day: "2027", homeTeam: "TBD", awayTeam: "TBD", time: "TBD", venue: "Stade L.S. Senghor, Dakar", round: "Saison inaugurale 2027", competition: "AUFL", isHighlight: true },
+  { id: "1", date: "—", day: "2027", homeTeam: "TBD", awayTeam: "TBD", time: "TBD", venue: "À confirmer · Dakar", round: "Saison inaugurale 2027", competition: "AUBL", isHighlight: true },
 ];
 
 export default function ScheduleSection() {
@@ -35,7 +37,7 @@ export default function ScheduleSection() {
       <div className="relative z-10 max-w-5xl">
         <div ref={headerRef} className="reveal flex justify-between items-end mb-10 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
           <div>
-            <span className="block w-10 h-[3px] mb-3" style={{ backgroundColor: "#c5a059" }} />
+            <span className="block w-10 h-[3px] mb-3" style={{ backgroundColor: ACCENT }} />
             <h2 className="leading-none uppercase text-white" style={{ fontFamily: "var(--font-display)", fontSize: "2.4rem", letterSpacing: "0.04em" }}>
               {t("schedule_title")}
             </h2>
@@ -55,14 +57,14 @@ export default function ScheduleSection() {
               className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-5 group cursor-pointer transition-all duration-200 -mx-4 px-4"
               style={{
                 borderBottom: idx < upcomingMatches.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-                backgroundColor: match.isHighlight ? "rgba(197,160,89,0.06)" : undefined,
+                backgroundColor: match.isHighlight ? "rgba(59,130,246,0.07)" : undefined,
               }}
             >
               {/* Mobile top row: date + badges + time / desktop: separate columns (md:contents) */}
               <div className="flex items-center justify-between gap-4 md:contents">
                 {/* Date */}
                 <div className="w-14 shrink-0 text-center">
-                  <div className="leading-none text-[2.2rem] md:text-[2.8rem]" style={{ fontFamily: "var(--font-display)", color: match.isHighlight ? "#c5a059" : "rgba(255,255,255,0.9)" }}>
+                  <div className="leading-none text-[2.2rem] md:text-[2.8rem]" style={{ fontFamily: "var(--font-display)", color: match.isHighlight ? ACCENT : "rgba(255,255,255,0.9)" }}>
                     {match.date}
                   </div>
                   <div className="text-[9px] font-bold uppercase tracking-[0.16em] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -75,13 +77,13 @@ export default function ScheduleSection() {
                   <span
                     className="inline-block text-[9px] font-black uppercase tracking-[0.14em] px-3 py-1.5 w-max"
                     style={match.isHighlight
-                      ? { backgroundColor: "#c5a059", color: "#0c0c0a" }
+                      ? { backgroundColor: ACCENT, color: "#ffffff" }
                       : { border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.4)" }
                     }
                   >
                     {match.round}
                   </span>
-                  <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: "1px solid rgba(197,160,89,0.3)", color: "#c5a059" }}>
+                  <span className="inline-block text-[8px] font-black uppercase tracking-[0.14em] px-2 py-0.5 w-max" style={{ border: "1px solid rgba(59,130,246,0.4)", color: ACCENT }}>
                     {match.competition}
                   </span>
                 </div>
@@ -102,7 +104,7 @@ export default function ScheduleSection() {
                 <span className="flex-1 text-right font-semibold uppercase tracking-wide text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
                   {match.homeTeam}
                 </span>
-                <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", letterSpacing: "0.08em", color: "#c5a059" }}>VS</span>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", letterSpacing: "0.08em", color: ACCENT }}>VS</span>
                 <span className="flex-1 font-semibold uppercase tracking-wide text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
                   {match.awayTeam}
                 </span>
